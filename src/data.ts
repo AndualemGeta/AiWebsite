@@ -83,7 +83,7 @@ export const MENU_ITEMS: MenuItem[] = [
     category: "sides",
     price: 3.49,
     calories: 410,
-    image: "https://images.unsplash.com/photo-1639024471283-2bc7b3c6a267?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1623653387945-2fd25214f8fc?auto=format&fit=crop&w=600&q=80",
     tags: ["Fan Favorite", "Extra Crunch"],
     rating: 4.6,
     reviewsCount: 1540,
