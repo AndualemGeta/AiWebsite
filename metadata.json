@@ -1,0 +1,6 @@
+{
+  "name": "Burger King - Premium Portal",
+  "description": "An elite high-converting Burger King portal with an interactive real-time meal builder, live loyalty rewards simulation, delivery coverage search, and an AI-powered smart menu advisor.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

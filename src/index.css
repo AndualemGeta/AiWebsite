@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Space+Grotesk:wght@500;700;900&family=JetBrains+Mono:wght@450;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-cream: #F5EBE0;
+  --color-brand-brown: #502314;
+  --color-brand-red: #D62300;
+}
+
+/* Custom Scrollbar and layout tweaks */
+@layer base {
+  body {
+    scrollbar-width: thin;
+    scrollbar-color: #502314 transparent;
+    background-color: #F5EBE0;
+    color: #502314;
+  }
+}
