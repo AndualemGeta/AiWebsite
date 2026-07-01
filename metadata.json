@@ -1,6 +1,8 @@
 {
-  "name": "Burger King - Premium Portal",
-  "description": "An elite high-converting Burger King portal with an interactive real-time meal builder, live loyalty rewards simulation, delivery coverage search, and an AI-powered smart menu advisor.",
-  "requestFramePermissions": ["geolocation"],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "name": "Shining Star Electro Mechanical Work",
+  "description": "Professional corporate website for Shining Star Electro Mechanical Work, an Ethiopian engineering firm specializing in: Elevator and escalator installation, modernization, and maintenance. General electromechanical engineering solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

@@ -1,0 +1,26 @@
+# This file specifies files and directories to ignore when uploading source code to Google Cloud
+.gcloudignore
+.git
+.gitignore
+
+# Next.js / React build artifacts
+.next/
+out/
+dist/
+build/
+
+# Node dependencies
+node_modules/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Local environment and log files
+*.log
+.env
+.env.local
+.env.*.local
+.env.production
+
+# PDF and static document files
+*.pdf

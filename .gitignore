@@ -1,8 +1,11 @@
+.next/
 node_modules/
-build/
+out/
 dist/
-coverage/
-.DS_Store
+build/
+*.tsbuildinfo
 *.log
-.env*
-!.env.example
+.env
+.env.local
+.env.*.local
+*.pdf
