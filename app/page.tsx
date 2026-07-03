@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Shield, 
@@ -32,7 +32,9 @@ import {
   UserCheck,
   Compass,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Sun,
+  Moon
 } from "lucide-react";
 import Image from "next/image";
 
@@ -594,6 +596,29 @@ export default function HomePage() {
   // Language state (en = English, am = Amharic)
   const [lang, setLang] = useState<"en" | "am">("en");
 
+  // Global theme state (light or dark)
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  // Synchronize theme with local storage and document element
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+    if (savedTheme === "dark" || savedTheme === "light") {
+      setTheme(savedTheme);
+    } else {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(prefersDark ? "dark" : "light");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   // Elevator simulator states
   const [currentSimFloor, setCurrentSimFloor] = useState<number>(1);
   const [isSimulating, setIsSimulating] = useState<boolean>(false);
@@ -863,7 +888,7 @@ Please provide an official brochure, lead times, and financial quotation for thi
       </div>
 
       {/* Main Navigation Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
+      <header className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
           {/* Corporate Brand Identity */}
@@ -872,10 +897,10 @@ Please provide an official brochure, lead times, and financial quotation for thi
               <Star className="w-6 h-6 animate-pulse text-white fill-white" />
             </div>
             <div>
-              <span className="text-xl font-bold tracking-tight text-slate-950 block leading-tight font-display">
+              <span className="text-xl font-bold tracking-tight text-slate-950 dark:text-white block leading-tight font-display">
                 SHINING STAR
               </span>
-              <span className="text-[10px] font-bold tracking-wider text-slate-500 uppercase block">
+              <span className="text-[10px] font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase block">
                 ELECTRO MECHANICAL WORK
               </span>
             </div>
@@ -883,63 +908,58 @@ Please provide an official brochure, lead times, and financial quotation for thi
 
           {/* Desktop Navigation Links */}
           <nav className="hidden xl:flex items-center gap-8">
-            <a href="#about" className="text-sm font-semibold text-slate-600 hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navOverview}</a>
-            <a href="#products" className="text-sm font-semibold text-slate-600 hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navProducts}</a>
-            <a href="#partners" className="text-sm font-semibold text-slate-600 hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navPartners}</a>
-            <a href="#projects" className="text-sm font-semibold text-slate-600 hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navPortfolio}</a>
-            <a href="#gallery" className="text-sm font-semibold text-slate-600 hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navGallery}</a>
-            <a href="#credentials" className="text-sm font-semibold text-slate-600 hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navCertifications}</a>
-            <a href="#estimator" className="text-sm font-semibold text-slate-600 hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navEstimator}</a>
+            <a href="#about" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navOverview}</a>
+            <a href="#products" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navProducts}</a>
+            <a href="#partners" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navPartners}</a>
+            <a href="#projects" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navPortfolio}</a>
+            <a href="#gallery" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navGallery}</a>
+            <a href="#credentials" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navCertifications}</a>
+            <a href="#estimator" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navEstimator}</a>
           </nav>
 
-          {/* Quick Contact & Language Switcher Portal */}
+          {/* Quick Contact & Theme Switcher Portal */}
           <div className="hidden lg:flex items-center gap-4">
-            {/* Language Switcher */}
-            <div className="flex bg-slate-100 p-1 rounded-xl border border-slate-200">
-              <button 
-                onClick={() => setLang("en")}
-                className={`px-3 py-1.5 text-[10px] font-bold rounded-lg transition-all ${lang === "en" ? "bg-slate-950 text-white shadow-sm" : "text-slate-500 hover:text-slate-900"}`}
-              >
-                EN
-              </button>
-              <button 
-                onClick={() => setLang("am")}
-                className={`px-3 py-1.5 text-[10px] font-bold rounded-lg transition-all ${lang === "am" ? "bg-[#f37021] text-white shadow-sm" : "text-slate-500 hover:text-slate-900"}`}
-              >
-                አማ
-              </button>
-            </div>
+            {/* Theme Switcher Button */}
+            <button 
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] hover:bg-slate-200 dark:hover:bg-slate-700 transition-all flex items-center justify-center cursor-pointer"
+              aria-label="Toggle Theme"
+              title={theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
+            >
+              {theme === "light" ? (
+                <Moon className="w-5 h-5 text-slate-700 dark:text-slate-300" />
+              ) : (
+                <Sun className="w-5 h-5 text-amber-500" />
+              )}
+            </button>
 
             <a 
               href="#inquiry-portal" 
-              className="inline-flex items-center gap-2 bg-slate-950 hover:bg-[#f37021] text-xs font-bold uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg duration-300"
+              className="inline-flex items-center gap-2 bg-slate-950 dark:bg-slate-800 hover:bg-[#f37021] dark:hover:bg-[#f37021] text-xs font-bold uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg duration-300 text-white"
             >
               {TRANSLATIONS[lang].getProposal}
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
 
-          {/* Mobile Hamburguer and Lang */}
+          {/* Mobile Hamburger and Theme Switcher */}
           <div className="flex items-center gap-3 xl:hidden">
-            {/* Small Language Switcher */}
-            <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200 mr-1">
-              <button 
-                onClick={() => setLang("en")}
-                className={`px-2 py-1 text-[9px] font-bold rounded-md ${lang === "en" ? "bg-slate-950 text-white" : "text-slate-500"}`}
-              >
-                EN
-              </button>
-              <button 
-                onClick={() => setLang("am")}
-                className={`px-2 py-1 text-[9px] font-bold rounded-md ${lang === "am" ? "bg-[#f37021] text-white" : "text-slate-500"}`}
-              >
-                አማ
-              </button>
-            </div>
+            {/* Mobile Theme Switcher */}
+            <button 
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-all flex items-center justify-center"
+              aria-label="Toggle Theme"
+            >
+              {theme === "light" ? (
+                <Moon className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+              ) : (
+                <Sun className="w-4 h-4 text-amber-500" />
+              )}
+            </button>
 
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-              className="p-2 text-slate-700 hover:text-[#f37021] transition-colors"
+              className="p-2 text-slate-700 dark:text-slate-300 hover:text-[#f37021] transition-colors"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -949,19 +969,19 @@ Please provide an official brochure, lead times, and financial quotation for thi
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="xl:hidden bg-white border-t border-slate-100 py-6 px-6 shadow-xl animate-in fade-in slide-in-from-top-4 duration-200">
+          <div className="xl:hidden bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 py-6 px-6 shadow-xl animate-in fade-in slide-in-from-top-4 duration-200">
             <nav className="flex flex-col gap-4">
-              <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navOverview}</a>
-              <a href="#products" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navProducts}</a>
-              <a href="#partners" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navPartners}</a>
-              <a href="#projects" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navPortfolio}</a>
-              <a href="#gallery" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navGallery}</a>
-              <a href="#credentials" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navCertifications}</a>
-              <a href="#estimator" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navEstimator}</a>
-              <hr className="border-slate-100 my-2" />
+              <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navOverview}</a>
+              <a href="#products" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navProducts}</a>
+              <a href="#partners" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navPartners}</a>
+              <a href="#projects" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navPortfolio}</a>
+              <a href="#gallery" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navGallery}</a>
+              <a href="#credentials" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navCertifications}</a>
+              <a href="#estimator" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navEstimator}</a>
+              <hr className="border-slate-100 dark:border-slate-800 my-2" />
               <div className="flex flex-col gap-3">
                 <span className="text-xs text-slate-400 font-bold uppercase tracking-wider">Breakdown Support</span>
-                <span className="text-sm font-bold text-slate-900">+251 985 064 087</span>
+                <span className="text-sm font-bold text-slate-900 dark:text-white">+251 985 064 087</span>
               </div>
               <a 
                 href="#inquiry-portal"
@@ -1090,7 +1110,7 @@ Please provide an official brochure, lead times, and financial quotation for thi
             {/* Left Col: Sticky summary profile */}
             <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-28">
               <div>
-                <span className="text-xs font-bold text-[#f37021] uppercase tracking-widest block mb-2">Corporate Profile 2026</span>
+                <span className="text-xs font-bold text-[#f37021] uppercase tracking-widest block mb-2">Corporate Profile</span>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 font-display tracking-tight leading-tight">
                   Shining Star Electro Mechanical Work
                 </h2>
@@ -1135,7 +1155,7 @@ Please provide an official brochure, lead times, and financial quotation for thi
                     <Wrench className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900 leading-tight">Shimeles Adimet</h4>
+                    <h4 className="text-xs font-bold text-slate-900 leading-tight">Shimeles Admit</h4>
                     <p className="text-[10px] text-slate-500 font-medium">Technical Manager</p>
                   </div>
                 </div>
@@ -2888,11 +2908,11 @@ Please provide an official brochure, lead times, and financial quotation for thi
                   </span>
                 </div>
               </div>
-              <p className="text-xs text-slate-400 leading-relaxed font-light max-w-sm">
+              <p className="text-xs text-slate-400 leading-relaxed font-bold max-w-sm">
                 Shining Star is Ethiopia's certified electro-mechanical contractor, specializing in luxury vertical transport supply, China factory trained technicians, and robust emergency breakdown support.
               </p>
               <div className="flex items-center gap-3">
-                <span className="text-xs font-bold text-slate-200">"Star of Elevation"</span>
+                <span className="text-xs font-bold text-slate-300">"Star of Elevation"</span>
               </div>
             </div>
 
@@ -2923,7 +2943,7 @@ Please provide an official brochure, lead times, and financial quotation for thi
           </div>
 
           <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-light text-slate-600">
-            <span>&copy; {new Date().getFullYear()} Shining Star Electro Mechanical Work. Built by scanning the 2026 Company Profile.</span>
+            <span>&copy; {new Date().getFullYear()} Shining Star Electro Mechanical Work.</span>
             <span>Addis Ababa, Ethiopia</span>
           </div>
 

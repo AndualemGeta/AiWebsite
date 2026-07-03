@@ -1,1 +1,136 @@
 @import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+/* Global Dark Mode Overrides */
+.dark body {
+  background-color: #0b0f19 !important;
+  color: #cbd5e1 !important;
+}
+
+/* Sections normally using bg-white or bg-slate-50 */
+.dark .bg-white,
+.dark .bg-slate-50 {
+  background-color: #0f172a !important;
+}
+
+/* Header standard white background override */
+.dark header {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  border-color: #1e293b !important;
+}
+
+/* Hero elements and overall container overrides */
+.dark .text-slate-950,
+.dark .text-slate-900,
+.dark .text-slate-800,
+.dark .text-slate-700 {
+  color: #f8fafc !important;
+}
+
+.dark .text-slate-600,
+.dark .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+/* Border overrides */
+.dark .border-slate-100,
+.dark .border-slate-200 {
+  border-color: #1e293b !important;
+}
+
+.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]),
+.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #1e293b !important;
+}
+
+/* Card and component backgrounds */
+.dark .bg-slate-100 {
+  background-color: #1e293b !important;
+}
+
+.dark .bg-slate-200 {
+  background-color: #334155 !important;
+}
+
+/* Standard panel / sub-card wrapper override */
+.dark .border-slate-100.bg-slate-50,
+.dark .border-slate-200.bg-white,
+.dark .bg-slate-50\/40,
+.dark .bg-slate-50\/50,
+.dark .bg-slate-50\/60,
+.dark .bg-slate-100\/50 {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* Inputs, Select fields, textareas */
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+/* Dropdown selections & option texts */
+.dark option {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+/* Focus and active tabs */
+.dark .bg-\[\#f37021\] {
+  background-color: #f37021 !important;
+}
+
+.dark .text-\[\#f37021\] {
+  color: #f37021 !important;
+}
+
+/* Project status badges */
+.dark .bg-emerald-50 {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  color: #34d399 !important;
+  border-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+.dark .bg-amber-50 {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+  color: #fbbf24 !important;
+  border-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+.dark .bg-blue-50 {
+  background-color: rgba(59, 130, 246, 0.1) !important;
+  color: #60a5fa !important;
+  border-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+/* Hover background adjustments */
+.dark .hover\:bg-slate-100:hover,
+.dark .hover\:bg-slate-50:hover {
+  background-color: #1e293b !important;
+}
+
+/* Interactive simulation section overlays */
+.dark .bg-slate-900 {
+  background-color: #0b0f19 !important;
+}
+
+.dark .bg-slate-950 {
+  background-color: #070a13 !important;
+}
+
+/* Shadow adjustments for dark surfaces */
+.dark .shadow-sm,
+.dark .shadow-md,
+.dark .shadow-lg,
+.dark .shadow-xl {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Separator rules */
+.dark hr {
+  border-color: #1e293b !important;
+}
