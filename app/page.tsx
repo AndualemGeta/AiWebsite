@@ -32,6 +32,11 @@ import {
   Compass,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
+  Calculator,
+  Camera,
+  Handshake,
+  Sparkles,
   Activity
 } from "lucide-react";
 import Image from "next/image";
