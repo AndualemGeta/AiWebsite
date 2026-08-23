@@ -40,12 +40,18 @@ import { CompanyLogo, CompanyLogoIcon } from "@/components/CompanyLogo";
 // Pre-defined premium stock images of elevators & modern architecture with referrers
 const IMAGES = {
   hero: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000",
-  passengerElevator: "https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&q=80&w=1200",
-  panoramicElevator: "https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&q=80&w=1200",
+  passengerElevator: "/products/passenger-elevator.jpg",
+  panoramicElevator: "/products/panoramic-elevator.jpg",
+  freightElevator: "/products/freight-elevator.jpg",
+  carLift: "/products/car-lift.jpg",
+  carStacking: "/products/car-stacking.jpg",
+  carPlatform: "/products/car-platform.jpg",
+  homeElevator: "/products/home-elevator.jpg",
+  escalator: "/products/escalator.jpg",
+  movingWalk: "/products/moving-walk.jpg",
+  generator: "/products/generator.jpg",
   industrialPanel: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1200",
   teamwork: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200",
-  carLift: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&q=80&w=1200",
-  generator: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200",
 };
 
 // Comprehensive Projects Dataset extracted directly from PDF Pages 17-22 and 26-34
@@ -295,8 +301,70 @@ const PROJECTS_DATA: Project[] = [
     floors: "G+6",
     details: "Elevator supply, installation, testing & commissioning"
   },
+  {
+    name: "Get-AS (Getas) International",
+    amharicName: "ጌታስ ኢንተርናሽናል",
+    location: "Ayat Area, Addis Ababa",
+    brand: "Fuji",
+    capacity: "1000KG / 13 Persons",
+    units: 1,
+    status: "Completed",
+    floors: "G+8",
+    details: "Supply, installation, testing & commissioning of 1 elevator unit"
+  },
 
-  // Ongoing Projects (Slides 31-33)
+  // Ongoing Projects (Slides 31-33 + Recent Additions)
+  {
+    name: "Soliyana Real Estate",
+    amharicName: "ሶሊያና ሪል እስቴት",
+    location: "Addis Ababa, Ethiopia",
+    brand: "Fuji",
+    capacity: "630KG / 8 Persons",
+    units: 3,
+    status: "Ongoing",
+    floors: "B+G+14 = 16 Floors",
+    details: "Supply and installation of 3 elevator units (630KG, B+G+14)",
+    lifecycle: {
+      stage: "Structural Work",
+      progressPercent: 65,
+      currentTask: "Hoistway guide rails, bracket anchoring & landing door header erection",
+      expectedHandover: "Q4 2026"
+    }
+  },
+  {
+    name: "Gelay Apartment",
+    amharicName: "ገላይ አፓርትመንት",
+    location: "Addis Ababa, Ethiopia",
+    brand: "Fuji",
+    capacity: "800KG / 10 Persons (Panoramic Glass)",
+    units: 1,
+    status: "Ongoing",
+    floors: "G+8 = 9 Floors",
+    details: "Supply and installation of 1 panoramic glass elevator (800KG, G+8)",
+    lifecycle: {
+      stage: "Structural Work",
+      progressPercent: 70,
+      currentTask: "Panoramic curved glass cab mounting & hoistway brackets setup",
+      expectedHandover: "Q3 2026"
+    }
+  },
+  {
+    name: "BHA Real Estate",
+    amharicName: "ቢኤችኤ ሪል እስቴት",
+    location: "Addis Ababa, Ethiopia",
+    brand: "Fuji",
+    capacity: "1000KG / 13 Persons",
+    units: 2,
+    status: "Ongoing",
+    floors: "G+B+16 & 2B+G+14",
+    details: "Supply and installation of 2 elevators (Tower 1: G+B+16, Tower 2: 2B+G+14)",
+    lifecycle: {
+      stage: "Structural Work",
+      progressPercent: 60,
+      currentTask: "Dual-shaft plumb-line calibration, traction motor placement & bracket mounting",
+      expectedHandover: "Q4 2026"
+    }
+  },
   {
     name: "RG and Families Real Estate",
     location: "Bole Adey Abeba Stadium, Addis Ababa",
@@ -379,13 +447,14 @@ const PROJECTS_DATA: Project[] = [
   },
   {
     name: "Africon Real Estate",
+    amharicName: "አፍሪኮን ሪል እስቴት",
     location: "22 Area, Addis Ababa",
     brand: "Fuji",
-    capacity: "1150KG (15 Persons) & 450KG (6 Persons)",
+    capacity: "450KG (6 Persons) & 1150KG (15 Persons)",
     units: 2,
     status: "Ongoing",
-    floors: "2B+G+13 = 15 Floors",
-    details: "Elevator supply, 2 installations, testing & commissioning",
+    floors: "B+G+14 = 16 Floors",
+    details: "Elevator supply, 2 installations, testing & commissioning (450KG passenger + 1150KG stretcher/bed lift)",
     lifecycle: {
       stage: "Procurement",
       progressPercent: 40,
@@ -426,7 +495,8 @@ const PROJECTS_DATA: Project[] = [
     }
   },
   {
-    name: "Antem Construction",
+    name: "ANTEM Building",
+    amharicName: "አንተም ህንፃ",
     location: "Bole Arabesa, Addis Ababa",
     brand: "Fuji",
     capacity: "1000KG / 13 Persons",
@@ -442,14 +512,15 @@ const PROJECTS_DATA: Project[] = [
     }
   },
   {
-    name: "Dugeda Construction",
+    name: "Dugda Construction",
+    amharicName: "ዱግዳ ኮንስትራክሽን",
     location: "Felewuha, Addis Ababa",
     brand: "Fuji Precision",
-    capacity: "1600KG / 21 Persons",
-    units: 2,
+    capacity: "1600KG / 21 Persons (Panoramic)",
+    units: 1,
     status: "Ongoing",
     floors: "2B+G+6 = 9 Floors",
-    details: "Elevator supply, 2 panoramic units installation, testing & commissioning",
+    details: "Elevator supply, 1 panoramic unit installation, testing & commissioning",
     lifecycle: {
       stage: "Commissioning",
       progressPercent: 82,
@@ -458,7 +529,17 @@ const PROJECTS_DATA: Project[] = [
     }
   },
 
-  // Preventive Maintenance Projects (Slides 33-34)
+  // Preventive Maintenance & Services (Slides 33-34 + Recent Contracts)
+  {
+    name: "Getu Commercial Center",
+    amharicName: "ጌቱ ኮሜርሻል ሴንተር",
+    location: "Bole Road (Africa Avenue), Addis Ababa",
+    brand: "Standard / Multi-Brand",
+    capacity: "Commercial Passenger",
+    units: 2,
+    status: "Maintenance",
+    details: "Comprehensive safety inspection, routine lubrication and 24/7 breakdown service (2 elevators)"
+  },
   {
     name: "Tsihay Real Estate (Yetbaberut Service)",
     location: "CMC, Addis Ababa",
@@ -611,62 +692,122 @@ const GALLERY_ITEMS = [
   {
     url: IMAGES.passengerElevator,
     category: "passenger",
-    title_en: "Premium Passenger Elevator",
-    title_am: "ዘመናዊ የሰው ማመላለሻ ሊፍት",
-    desc_en: "Sleek stainless steel interior with smart control panel and LED ambient lighting.",
+    title_en: "Premium Passenger Elevator Cabins",
+    title_am: "ዘመናዊ የሰው ማመላለሻ ሊፍት ካቢኔዎች",
+    desc_en: "Sleek stainless steel interior with smart touchscreen control panel, voice annunciator, and energy-saving LED ambient lighting.",
     desc_am: "ቀልጣፋ የስማርት ቁጥጥር ሲስተም እና የኤልኢዲ መብራት ያለው ዘመናዊ የስታንለስ ስቲል ሊፍት።",
-    specs_en: "Capacity: 1000KG (13 Persons) | Sourced Brand: FUJI Precision",
-    specs_am: "የመጫን አቅም፡ 1000 ኪሎግራም (13 ሰው) | ብራንድ፡ ፉጂ ፕሪሲዥን",
+    specs_en: "Capacity: 450KG - 1600KG (6 - 21 Persons) | Speed: 1.0 - 4.0 m/s | FUJI & Orona PMSM Gearless",
+    specs_am: "የመጫን አቅም፡ 450 - 1600 ኪሎግራም | ፍጥነት፡ 1.0 - 4.0 ሜ/ሰ | ብራንድ፡ ፉጂ እና ኦሮና ጊየርለስ",
   },
   {
     url: IMAGES.panoramicElevator,
     category: "panoramic",
-    title_en: "High-Visibility Panoramic Glass Cabin",
+    title_en: "High-Visibility Panoramic Glass Cabins",
     title_am: "ፓኖራሚክ የመስታወት ሊፍት",
-    desc_en: "Stunning scenic views with high-durability safety tempered glass and modern steel framework.",
+    desc_en: "Stunning scenic 180° to 360° observation views with laminated safety tempered glass and aerodynamic steel framework.",
     desc_am: "ለዕይታ ምቹ የሆነ ከፍተኛ ጥንካሬ ካለው የተጠናከረ መስታወት እና ብረት የተሰራ ውብ ሊፍት።",
-    specs_en: "Compliance: EN 81-20/50 | Cabin Type: Round Panoramic Glass",
-    specs_am: "ደህንነት፡ EN 81-20/50 | የካቢን አይነት፡ ክብ ፓኖራሚክ መስታወት",
+    specs_en: "Compliance: EN 81-20/50 | Cabin Type: Round / Square Panoramic Glass | MRL Configuration",
+    specs_am: "ደህንነት፡ EN 81-20/50 | የካቢን አይነት፡ ክብ/አራት ማዕዘን ፓኖራሚክ መስታወት",
   },
   {
-    url: IMAGES.industrialPanel,
-    category: "systems",
-    title_en: "Integrated Electrical & VVVF Control Cabinet",
-    title_am: "የኤሌክትሮኒክስ ቁጥጥር ካቢኔ",
-    desc_en: "Precision engineering featuring energy-saving VVVF frequency converters and safe logic boards.",
-    desc_am: "የሃይል ፍጆታን የሚቀንስ የVVVF ፍሪኩዌንሲ መለወጫ እና የሎጂክ ሰሌዳ የያዘ መቆጣጠሪያ።",
-    specs_en: "Power Savings: >48% | Technology: PMSM Synchronous Gearless Support",
-    specs_am: "የሃይል ቁጠባ፡ >48% | ቴክኖሎጂ፡ PMSM ሲንክሮነስ ጊየርለስ",
-  },
-  {
-    url: IMAGES.teamwork,
-    category: "systems",
-    title_en: "On-Site Mechanical Integration & SLA Service",
-    title_am: "የመስክ ተከላ እና ጥራት ቁጥጥር",
-    desc_en: "Licensed Shining Star electromechanical engineering team installing structural guide rails with micro-millimeter precision.",
-    desc_am: "የሻይኒንግ ስታር መሃንዲሶች የሊፍት መመሪያ ሀዲዶችን በከፍተኛ ጥንቃሬ እና ጥንቃቄ ሲተክሉ።",
-    specs_en: "Engineering Standard: Grade-1 Registered Contractor Quality",
-    specs_am: "የምህንድስና ደረጃ፡ የደረጃ-1 ኤሌክትሮ መካኒካል ተቋራጭ ጥራት",
+    url: IMAGES.freightElevator,
+    category: "passenger",
+    title_en: "Industrial Freight & Hospital Bed Lifts",
+    title_am: "የሆስፒታል እና የከባድ እቃዎች ማመላለሻ ሊፍት",
+    desc_en: "Rugged high-capacity cabin reinforced with stainless steel checkered floor plates, anti-collision bumper rails, and wide door openings.",
+    desc_am: "ለሆስፒታል አልጋዎች እና ለከባድ የፋብሪካ እቃዎች ተስማሚ የሆነ ጥንካሬ ያለው ሰፊ ሊፍት።",
+    specs_en: "Capacity: 1000KG - 5000KG | Leveling Accuracy: ±3mm | Center / Side Multi-Panel Opening",
+    specs_am: "አቅም፡ 1000 - 5000 ኪሎ | ትክክለኛ ወለል መቆሚያ፡ ±3ሚሜ | ሰፊ በር",
   },
   {
     url: IMAGES.carLift,
+    category: "vehicular",
+    title_en: "Automotive Car Lift (Vehicle Elevator)",
+    title_am: "የመኪና ማመላለሻ ሊፍት (ካር ሊፍት)",
+    desc_en: "Heavy-duty enclosed vehicular elevator cab with front-and-rear through doors and dual car operating panels (COP) accessible from the driver's seat.",
+    desc_am: "ሁለት የቁጥጥር ፓነል እና የፊትና ኋላ መውጫ በር ያለው ጠንካራ መኪናዎችን በፎቆች መካከል የማመላለሻ ሊፍት።",
+    specs_en: "Capacity: 3000KG - 5000KG | Dual Cabin COPs | Photoelectric Positioning Sensors | Traction / Hydraulic",
+    specs_am: "የክብደት አቅም፡ 3000 - 5000 ኪሎ | ባለ ሁለት COP መቆጣጠሪያ | የሴፍቲ ሴንሰር",
+  },
+  {
+    url: IMAGES.carStacking,
+    category: "vehicular",
+    title_en: "Automated Multi-Tier Car Stacking Parking System",
+    title_am: "ባለብዙ ፎቅ አውቶማቲክ የመኪና ማቆሚያ ሲስተም (ካር ስታኪንግ)",
+    desc_en: "Automated hydraulic and mechanical vertical stacking arrays designed to double or triple parking bay capacity with motorized sliding pallets.",
+    desc_am: "የመኪና ማቆሚያ ቦታ እጥረትን የሚቀርፍ ባለ 2 እና 3 ፎቅ አውቶማቲክ የመኪና ማቆሚያ ሲስተም።",
+    specs_en: "2-Tier / 3-Tier Stacking | 2500KG per bay | Anti-Drop Mechanical Safety Hooks | Cycle Time: <45s",
+    specs_am: "ባለ 2 እና 3 ደረጃ | 2500 ኪሎ በአንድ መኪና | ሜካኒካል የደህንነት መቆለፊያዎች",
+  },
+  {
+    url: IMAGES.carPlatform,
+    category: "vehicular",
+    title_en: "Hydraulic Car Platform & Scissor Vehicle Lift",
+    title_am: "የመኪና ማንሻ ሃይድሮሊክ ፕላትፎርም (ካር ፕላትፎርም)",
+    desc_en: "Heavy-duty scissor or dual-column vehicle elevating platform providing direct access between driveways and underground parking without space-wasting ramps.",
+    desc_am: "ራምፕ ሳይሰራ መኪናዎችን በቀላሉ ወደ ምድር ቤት ማቆሚያ የሚያወርድና የሚያወጣ የሃይድሮሊክ ፕላትፎርም።",
+    specs_en: "Capacity: 3000KG - 6000KG | Heavy Scissor / Hydraulic Ram | Perimeter Safety Trip Edges | Pit / Surface Mount",
+    specs_am: "አቅም፡ 3000 - 6000 ኪሎ | ሃይድሮሊክ ሲስተም | የደህንነት ዳርቻ ሴንሰሮች",
+  },
+  {
+    url: IMAGES.homeElevator,
     category: "passenger",
-    title_en: "Heavy-Duty Multi-Level Car Lift System",
-    title_am: "ከባድ መኪናዎችን የሚያነሳ የሊፍት ሲስተም",
-    desc_en: "Robust traction-based structural vehicle lifting solution with double operating panels and certified security locks.",
-    desc_am: "ሁለት የቁጥጥር ፓነል እና የደህንነት መቆለፊያ ያለው ጠንካራ መኪናዎችን የማመላለሻ ሲስተም።",
-    specs_en: "Weight Limit: 3000KG - 5000KG | Safety Hooks: Automated Mechanical",
-    specs_am: "የክብደት ገደብ፡ 3000 - 5000 ኪሎ | ደህንነት፡ አውቶማቲክ መቆለፊያዎች",
+    title_en: "Villa & Residential Home Elevators",
+    title_am: "የቪላ እና የመኖሪያ ቤት ሊፍቶች",
+    desc_en: "Ultra-quiet, space-efficient private luxury residential elevators with shallow pit depth and emergency automatic rescue device (ARD).",
+    desc_am: "ለመኖሪያ ቤቶች እና ቪላዎች ተስማሚ የሆነ ድምጽ አልባ፣ አነስተኛ ቦታ የሚወስድ ዘመናዊ ሊፍት።",
+    specs_en: "Capacity: 250KG - 400KG (3-5 Persons) | Speed: 0.4 m/s | 220V Single-Phase / 380V Three-Phase",
+    specs_am: "አቅም፡ 250 - 400 ኪሎ | ፍጥነት፡ 0.4 ሜ/ሰ | 220V/380V የኤሌክትሪክ ፍጆታ",
+  },
+  {
+    url: IMAGES.escalator,
+    category: "systems",
+    title_en: "Heavy-Traffic Commercial Escalators",
+    title_am: "የገበያ አዳራሽና የህዝብ መወጣጫ ደረጃ (ኤስካሌተር)",
+    desc_en: "Continuous flow passenger transit systems equipped with variable frequency idle speed sensors, stainless steel balustrades, and skirt lighting.",
+    desc_am: "ለገበያ ማዕከላት፣ ለባቡር ጣቢያዎች እና ለአውሮፕላን ማረፊያዎች ተስማሚ የሆነ አስተማማኝ ኤስካሌተር።",
+    specs_en: "Inclination: 30° / 35° | Step Width: 800mm - 1000mm | Speed: 0.5 m/s | Eco-Energy Saving Drive",
+    specs_am: "አንግል፡ 30° / 35° | የስቴፕ ስፋት፡ 800 - 1000ሚሜ | የሃይል ቁጣባ ቴክኖሎጂ",
+  },
+  {
+    url: IMAGES.movingWalk,
+    category: "systems",
+    title_en: "Horizontal & Inclined Moving Walkways",
+    title_am: "አግድም እና ዘንበል ያሉ ተንቀሳቃሽ መንገዶች (ትራቭሌተር)",
+    desc_en: "Smooth, continuous horizontal transportation for shopping carts and baggage handling across large commercial and transit complexes.",
+    desc_am: "በገበያ አዳራሾች ውስጥ ጋሪዎችንና እቃዎችን ይዞ ለመንቀሳቀስ የሚያስችል ተንቀሳቃሽ መንገድ።",
+    specs_en: "Angle: 0° - 12° | Width: 1000mm - 1400mm | Anti-Slip Pallet Surface | Heavy-Duty Truss",
+    specs_am: "አንግል፡ 0° - 12° | ስፋት፡ 1000 - 1400ሚሜ | የማያንሸራትት ወለል",
   },
   {
     url: IMAGES.generator,
     category: "power",
-    title_en: "High-Capacity Backup Diesel Generator Sets",
-    title_am: "ከፍተኛ አቅም ያለው የናፍጣ ጄኔሬተር",
-    desc_en: "Reliable prime emergency power backup units with automatic transfer switch (ATS) to prevent lift blackouts.",
-    desc_am: "ሊፍት እንዳይቋረጥ በአጭር ሰከንዶች ውስጥ አውቶማቲክ የሀይል ሽግግር (ATS) የሚያደርግ ጄነሬተር።",
-    specs_en: "Sourced Brands: Perkins / Cummins | Response Time: <5 Seconds",
-    specs_am: "ብራንዶች፡ ፐርኪንስ / ካሚንስ | የምላሽ ሰዓት፡ <5 ሰከንድ",
+    title_en: "High-Capacity Backup Diesel Generator Sets & ATS",
+    title_am: "ከፍተኛ አቅም ያለው የናፍጣ ጄኔሬተር እና ATS ፓነል",
+    desc_en: "Reliable prime emergency power backup units with automatic transfer switch (ATS) to ensure continuous elevator and building operations during outages.",
+    desc_am: "የኤሌክትሪክ መቆራረጥ ሲያጋጥም ሊፍቶች እንዳይቆሙ በአጭር ሰከንዶች ውስጥ አውቶማቲክ የሀይል ሽግግር (ATS) የሚያደርግ ጄነሬተር።",
+    specs_en: "Sourced Brands: Perkins / Cummins / Stamford | Capacity: 50kVA - 1500kVA | ATS Transfer: <5s",
+    specs_am: "ብራንዶች፡ ፐርኪንስ / ካሚንስ | አቅም፡ 50kVA - 1500kVA | የምላሽ ሰዓት፡ <5 ሰከንድ",
+  },
+  {
+    url: IMAGES.industrialPanel,
+    category: "systems",
+    title_en: "Integrated Electrical & VVVF Microprocessor Cabinet",
+    title_am: "የኤሌክትሮኒክስ ቁጥጥር እና የVVVF ካቢኔ",
+    desc_en: "Precision engineering featuring energy-saving VVVF frequency converters, 32-bit dual microprocessors, and smart leveling logic.",
+    desc_am: "የሃይል ፍጆታን የሚቀንስ የVVVF ፍሪኩዌንሲ መለወጫ እና ስማርት ፕሮሰሰር የያዘ የቁጥጥር ሳጥን።",
+    specs_en: "Power Savings: >48% | PMSM Synchronous Gearless Support | Dual Safety Loop Interlocks",
+    specs_am: "የሃይል ቁጠባ፡ >48% | ጊየርለስ ሲስተም ድጋፍ | ከፍተኛ ደህንነት",
+  },
+  {
+    url: IMAGES.teamwork,
+    category: "systems",
+    title_en: "On-Site Mechanical Installation & SLA Service",
+    title_am: "የመስክ ተከላ እና ጥራት ቁጥጥር ምህንድስና",
+    desc_en: "Licensed Shining Star electromechanical engineering team installing structural guide rails and laser plumb lines with micro-millimeter precision.",
+    desc_am: "የሻይኒንግ ስታር መሃንዲሶች የሊፍት መመሪያ ሀዲዶችን በከፍተኛ ጥንቃሬ እና ሌዘር ጥንቃቄ ሲተክሉ።",
+    specs_en: "Engineering Standard: Grade-1 Registered Contractor | 24/7 Rapid Response Maintenance",
+    specs_am: "የምህንድስና ደረጃ፡ የደረጃ-1 ኤሌክትሮ መካኒካል ተቋራጭ | የ24/7 ፈጣን ጥገና",
   }
 ];
 
@@ -696,7 +837,7 @@ export default function HomePage() {
 
   // Active tabs for different information modules
   const [activeAboutTab, setActiveAboutTab] = useState<"overview" | "leadership" | "values" | "prequal">("overview");
-  const [activeProductTab, setActiveProductTab] = useState<"elevators" | "escalators" | "special" | "power">("elevators");
+  const [activeProductTab, setActiveProductTab] = useState<"elevators" | "vehicular" | "escalators" | "power">("elevators");
   
   // Projects state
   const [searchQuery, setSearchQuery] = useState("");
@@ -704,7 +845,7 @@ export default function HomePage() {
   const [brandFilter, setBrandFilter] = useState<string>("All");
 
   // Photo Gallery state
-  const [galleryFilter, setGalleryFilter] = useState<"all" | "passenger" | "panoramic" | "systems" | "power">("all");
+  const [galleryFilter, setGalleryFilter] = useState<"all" | "passenger" | "panoramic" | "vehicular" | "systems" | "power">("all");
   const [selectedGalleryImage, setSelectedGalleryImage] = useState<number | null>(null);
 
   // Custom Elevator Estimator wizard state
@@ -822,6 +963,18 @@ Please formulate an official quotation and contact me.`
     }
   };
 
+  // Smooth scroll helper for internal navigation and buttons
+  const scrollToSection = (id: string) => {
+    setMobileMenuOpen(false);
+    const cleanId = id.replace(/^#/, "");
+    const targetElement = document.getElementById(cleanId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      window.location.hash = cleanId;
+    }
+  };
+
   // Pre-fill form from selected gallery photo item
   const handleInquiryForGalleryItem = (itemIndex: number) => {
     const item = GALLERY_ITEMS[itemIndex];
@@ -836,12 +989,26 @@ Please provide an official brochure, lead times, and financial quotation for thi
     }));
 
     setSelectedGalleryImage(null); // Close lightbox modal
+    setTimeout(() => {
+      scrollToSection("inquiry-portal");
+    }, 100);
+  };
 
-    // Scroll to the contact form smoothly
-    const contactSection = document.getElementById("inquiry-portal");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
+  // Pre-fill form from selected product card
+  const handleInquiryForProduct = (productName: string, serviceType: string, specs: string) => {
+    setFormData(prev => ({
+      ...prev,
+      serviceType: serviceType || "elevator-install",
+      message: `Direct inquiry regarding ${productName}:
+- Specifications: ${specs}
+- Required Services: Supply, Structural Shaft Installation, Testing & Commissioning
+
+Please provide formal engineering layout drawings, lead time quotation, and schedule a site evaluation.`
+    }));
+
+    setTimeout(() => {
+      scrollToSection("inquiry-portal");
+    }, 50);
   };
 
   // Main Inquiry Submission
@@ -948,82 +1115,140 @@ Please provide an official brochure, lead times, and financial quotation for thi
             <span className="text-slate-400 font-light">{TRANSLATIONS[lang].regContractor}</span>
           </div>
           <div className="flex items-center gap-4 text-xs">
-            <span className="flex items-center gap-1.5">
+            <a 
+              href="tel:+251985064087" 
+              className="flex items-center gap-1.5 hover:text-[#f37021] transition-colors cursor-pointer"
+            >
               <Clock className="w-3.5 h-3.5 text-[#f37021]" />
-              {TRANSLATIONS[lang].emergencyHotline} <strong className="text-white">+251 985 064 087</strong>
-            </span>
+              {TRANSLATIONS[lang].emergencyHotline} <strong className="text-white hover:underline">+251 985 064 087</strong>
+            </a>
           </div>
         </div>
       </div>
 
       {/* Main Navigation Header */}
-      <header className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <header className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 shadow-sm transition-all">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-2">
           
           {/* Corporate Brand Identity */}
-          <a href="#home" className="flex items-center group transition-transform hover:scale-[1.02]">
+          <button 
+            type="button"
+            onClick={() => scrollToSection("home")}
+            className="flex items-center group transition-transform hover:scale-[1.02] cursor-pointer text-left shrink-0"
+            aria-label="Shining Star Electro-Mechanical Home"
+          >
             <CompanyLogo variant="badge" />
-          </a>
+          </button>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-7">
-            <a href="#home" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navHome}</a>
-            <a href="#about" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navOverview}</a>
-            <a href="#products" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navProducts}</a>
-            <a href="#partners" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navPartners}</a>
-            <a href="#projects" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navPortfolio}</a>
-            <a href="#gallery" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navGallery}</a>
-            <a href="#credentials" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navCertifications}</a>
-            <a href="#estimator" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navEstimator}</a>
+          {/* Desktop & Laptop Navigation List - Adaptive to Display Ratios */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 2xl:gap-3">
+            {[
+              { id: "home", label: TRANSLATIONS[lang].navHome },
+              { id: "about", label: TRANSLATIONS[lang].navOverview },
+              { id: "products", label: TRANSLATIONS[lang].navProducts, badge: "10+" },
+              { id: "partners", label: TRANSLATIONS[lang].navPartners },
+              { id: "projects", label: TRANSLATIONS[lang].navPortfolio, badge: `${PROJECTS_DATA.length}` },
+              { id: "gallery", label: TRANSLATIONS[lang].navGallery },
+              { id: "credentials", label: TRANSLATIONS[lang].navCertifications },
+              { id: "estimator", label: TRANSLATIONS[lang].navEstimator },
+            ].map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => scrollToSection(item.id)}
+                className="relative px-2.5 xl:px-3.5 py-2 text-xs xl:text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap"
+              >
+                {item.label}
+                {item.badge && (
+                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-orange-100 dark:bg-orange-950/60 text-[#f37021] border border-orange-200 dark:border-orange-900/50">
+                    {item.badge}
+                  </span>
+                )}
+              </button>
+            ))}
           </nav>
 
-          {/* Quick Contact Portal */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a 
-              href="#inquiry-portal" 
-              className="inline-flex items-center gap-2 bg-slate-950 dark:bg-slate-800 hover:bg-[#f37021] dark:hover:bg-[#f37021] text-xs font-bold uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg duration-300 text-white"
+          {/* Quick Contact & Action Portal */}
+          <div className="hidden sm:flex items-center gap-3 shrink-0">
+            <button 
+              type="button"
+              onClick={() => scrollToSection("inquiry-portal")}
+              className="inline-flex items-center gap-2 bg-slate-950 dark:bg-slate-800 hover:bg-[#f37021] dark:hover:bg-[#f37021] text-xs font-bold uppercase tracking-wider py-3 px-4 xl:py-3.5 xl:px-6 rounded-xl transition-all shadow-md hover:shadow-lg duration-300 text-white cursor-pointer active:scale-95 whitespace-nowrap"
             >
               {TRANSLATIONS[lang].getProposal}
-              <ArrowRight className="w-4 h-4" />
-            </a>
+              <ArrowRight className="w-4 h-4 text-[#f37021] group-hover:text-white" />
+            </button>
           </div>
 
-          {/* Mobile Hamburger Toggle */}
-          <div className="flex items-center gap-3 xl:hidden">
+          {/* Mobile & Tablet Hamburger Toggle */}
+          <div className="flex items-center gap-2 lg:hidden">
             <button 
+              type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-              className="p-2 text-slate-700 dark:text-slate-300 hover:text-[#f37021] transition-colors"
+              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-[#f37021] transition-all cursor-pointer border border-slate-200 dark:border-slate-700"
               aria-label="Toggle Navigation Menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile & Tablet Dropdown Drawer with Complete Menu List */}
         {mobileMenuOpen && (
-          <div className="xl:hidden bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 py-6 px-6 shadow-xl animate-in fade-in slide-in-from-top-4 duration-200">
-            <nav className="flex flex-col gap-4">
-              <a href="#home" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navHome}</a>
-              <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navOverview}</a>
-              <a href="#products" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navProducts}</a>
-              <a href="#partners" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navPartners}</a>
-              <a href="#projects" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navPortfolio}</a>
-              <a href="#gallery" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navGallery}</a>
-              <a href="#credentials" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navCertifications}</a>
-              <a href="#estimator" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navEstimator}</a>
+          <div className="lg:hidden bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 py-5 px-6 shadow-xl animate-in fade-in slide-in-from-top-4 duration-200 max-h-[80vh] overflow-y-auto">
+            <nav className="flex flex-col gap-1.5">
+              {[
+                { id: "home", label: TRANSLATIONS[lang].navHome, subtitle: "Welcome & Highlights" },
+                { id: "about", label: TRANSLATIONS[lang].navOverview, subtitle: "Company Profile & Mission" },
+                { id: "products", label: TRANSLATIONS[lang].navProducts, badge: "10 Models", subtitle: "Elevators, Car Lifts & Escalators" },
+                { id: "partners", label: TRANSLATIONS[lang].navPartners, subtitle: "Fuji, IGV & Global Partners" },
+                { id: "projects", label: TRANSLATIONS[lang].navPortfolio, badge: `${PROJECTS_DATA.length} Projects`, subtitle: "Active, Completed & Maintenance" },
+                { id: "gallery", label: TRANSLATIONS[lang].navGallery, subtitle: "On-Site Engineering Photos" },
+                { id: "credentials", label: TRANSLATIONS[lang].navCertifications, subtitle: "Licenses, TIN & ISO Compliance" },
+                { id: "estimator", label: TRANSLATIONS[lang].navEstimator, subtitle: "Interactive Project Budgeting" },
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => scrollToSection(item.id)}
+                  className="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-left transition-colors cursor-pointer group"
+                >
+                  <div className="flex flex-col">
+                    <span className="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-[#f37021] transition-colors">
+                      {item.label}
+                    </span>
+                    <span className="text-[11px] text-slate-400 font-normal">
+                      {item.subtitle}
+                    </span>
+                  </div>
+                  {item.badge && (
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-orange-50 dark:bg-orange-950 text-[#f37021] border border-orange-200 dark:border-orange-900">
+                      {item.badge}
+                    </span>
+                  )}
+                </button>
+              ))}
+
               <hr className="border-slate-100 dark:border-slate-800 my-2" />
-              <div className="flex flex-col gap-3">
-                <span className="text-xs text-slate-400 font-bold uppercase tracking-wider">Breakdown Support</span>
-                <span className="text-sm font-bold text-slate-900 dark:text-white">+251 985 064 087</span>
+              
+              <div className="flex items-center justify-between p-2.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-100 dark:border-slate-700/60">
+                <div className="flex flex-col">
+                  <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">24/7 Breakdown Hotline</span>
+                  <a href="tel:+251985064087" className="text-xs font-bold text-slate-900 dark:text-white hover:text-[#f37021]">
+                    +251 985 064 087
+                  </a>
+                </div>
+                <Clock className="w-4 h-4 text-[#f37021]" />
               </div>
-              <a 
-                href="#inquiry-portal" 
-                onClick={() => setMobileMenuOpen(false)} 
-                className="bg-[#f37021] hover:bg-[#d65103] text-white font-bold py-3 px-4 rounded-xl text-center transition-all shadow-md text-sm uppercase tracking-wider"
+
+              <button 
+                type="button"
+                onClick={() => scrollToSection("inquiry-portal")} 
+                className="bg-[#f37021] hover:bg-[#d65103] text-white font-bold py-3 px-4 rounded-xl text-center transition-all shadow-md text-xs uppercase tracking-wider cursor-pointer active:scale-95 mt-2 flex items-center justify-center gap-2"
               >
                 {TRANSLATIONS[lang].getProposal}
-              </a>
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </nav>
           </div>
         )}
@@ -1090,20 +1315,22 @@ Please provide an official brochure, lead times, and financial quotation for thi
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4 mb-16"
             >
-              <a 
-                href="#estimator" 
-                className="inline-flex items-center justify-center gap-2 bg-[#f37021] hover:bg-[#d65103] text-white font-bold px-8 py-4 rounded-xl text-sm uppercase tracking-wider transition-all shadow-lg shadow-orange-500/20 hover:scale-105 duration-200"
+              <button 
+                type="button"
+                onClick={() => scrollToSection("estimator")}
+                className="inline-flex items-center justify-center gap-2 bg-[#f37021] hover:bg-[#d65103] text-white font-bold px-8 py-4 rounded-xl text-sm uppercase tracking-wider transition-all shadow-lg shadow-orange-500/20 hover:scale-105 active:scale-95 duration-200 cursor-pointer"
               >
                 {TRANSLATIONS[lang].configureBtn}
                 <Sliders className="w-4 h-4" />
-              </a>
-              <a 
-                href="#projects" 
-                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-white font-semibold px-8 py-4 rounded-xl text-sm uppercase tracking-wider transition-all hover:border-slate-700 duration-200"
+              </button>
+              <button 
+                type="button"
+                onClick={() => scrollToSection("projects")}
+                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-white font-semibold px-8 py-4 rounded-xl text-sm uppercase tracking-wider transition-all hover:border-slate-700 active:scale-95 duration-200 cursor-pointer"
               >
                 {TRANSLATIONS[lang].browseProjects} ({PROJECTS_DATA.length})
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </button>
             </motion.div>
 
             {/* Authentic Company Profile Key Metrics (Direct from PDF) */}
@@ -1507,31 +1734,36 @@ Please provide an official brochure, lead times, and financial quotation for thi
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold text-[#f37021] uppercase tracking-widest block mb-2">Our Engineering Range</span>
+            <span className="text-xs font-bold text-[#f37021] uppercase tracking-widest block mb-2">
+              {lang === "en" ? "Our Engineering Range" : "የኢንጂነሪንግ አገልግሎቶቻችን"}
+            </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 font-display tracking-tight leading-tight">
-              Elevator Systems &amp; Electromechanical Solutions
+              {lang === "en" ? "Elevator Systems, Car Lifts & Building Solutions" : "የሊፍት ሲስተሞች፥ የመኪና ሊፍቶች እና የህንጻ አገልግሎቶች"}
             </h2>
             <p className="text-slate-600 mt-4 font-light leading-relaxed">
-              We design, supply, install, commission, modernize and maintain a vast portfolio of vertical transport mechanisms and commercial building support systems.
+              {lang === "en" 
+                ? "We supply, install, test, commission, modernize, and maintain high-precision vertical transport solutions — from passenger elevators to car lifts, stacking parking systems, and heavy-duty car platforms."
+                : "ከመንገደኞች ሊፍት ጀምሮ እስከ መኪና ሊፍት፣ የመኪና ስታኪንግ ፓርኪንግ ሲስተሞች እና የመኪና ፕላትፎርሞች ድረስ ጥራት ያላቸውን የቁልቁል እና አግድም ትራንስፖርት መፍትሄዎችን እናቀርባለን።"}
             </p>
           </div>
 
           {/* Tab Selector */}
           <div className="flex flex-wrap justify-center gap-2 mb-12">
             {[
-              { id: "elevators", label: "Passenger & Panoramic Lifts", icon: Layers },
-              { id: "escalators", label: "Escalators & Moving Walks", icon: Maximize },
-              { id: "special", label: "Car Lifts & Specialized Lifts", icon: Sliders },
-              { id: "power", label: "Power & Building Services", icon: Zap }
+              { id: "elevators", label: lang === "en" ? "Passenger & Panoramic Lifts" : "የመንገደኞች እና ፓኖራሚክ ሊፍቶች", icon: Layers },
+              { id: "vehicular", label: lang === "en" ? "Car Lifts, Stacking & Platforms" : "የመኪና ሊፍቶች እና ስታኪንግ", icon: Sliders },
+              { id: "escalators", label: lang === "en" ? "Escalators & Moving Walks" : "ኤስካሌተሮች እና ተንቀሳቃሽ መንገዶች", icon: Maximize },
+              { id: "power", label: lang === "en" ? "Power & Building Services" : "ጄኔሬተር እና የህንጻ አገልግሎቶች", icon: Zap }
             ].map(tab => {
               const Icon = tab.icon;
               return (
                 <button
+                  type="button"
                   key={tab.id}
                   onClick={() => setActiveProductTab(tab.id as any)}
-                  className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all border ${
+                  className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all border cursor-pointer active:scale-95 duration-150 ${
                     activeProductTab === tab.id 
-                      ? "bg-slate-950 text-white border-slate-950 shadow-md" 
+                      ? "bg-slate-950 text-white border-slate-950 shadow-md shadow-slate-950/10" 
                       : "bg-white text-slate-600 hover:text-slate-900 border-slate-200 hover:bg-slate-100"
                   }`}
                 >
@@ -1553,215 +1785,637 @@ Please provide an official brochure, lead times, and financial quotation for thi
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               
+              {/* Category 1: Elevators */}
               {activeProductTab === "elevators" && (
                 <>
                   {/* Passenger Elevators */}
-                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/30 transition-all">
-                    <div className="p-6 space-y-4">
-                      <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-[#f37021]">
-                        <Layers className="w-6 h-6" />
+                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/40 hover:shadow-md transition-all group">
+                    <div>
+                      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
+                        <Image 
+                          src="/products/passenger-elevator.jpg" 
+                          alt="Passenger Elevator" 
+                          fill 
+                          className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                        <div className="absolute top-3 left-3 bg-[#f37021] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md tracking-wider shadow">
+                          FUJI / Sigma Series
+                        </div>
+                        <div className="absolute bottom-3 left-3 right-3 text-white">
+                          <span className="text-[11px] text-slate-300 font-medium font-amharic block">የመንገደኞች ሊፍት</span>
+                          <h3 className="text-base font-bold tracking-tight">Passenger Elevators</h3>
+                        </div>
                       </div>
-                      <h3 className="text-lg font-bold text-slate-950">Passenger Elevators</h3>
-                      <p className="text-xs text-slate-500 font-light leading-relaxed">
-                        Our passenger elevators feature state-of-the-art permanent magnet synchronous motors (PMSM) and variable frequency drives (VVVF). Reduces energy consumption by over 48%.
-                      </p>
-                      <ul className="space-y-1 text-xs text-slate-600 font-medium pt-2">
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Intelligent Group Control (Up to 8 cabs)</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Microprocessor-based VVVF controller</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Capacity: 450kg, 630kg, 800kg, 1000kg</li>
-                      </ul>
+                      
+                      <div className="p-6 space-y-4">
+                        <p className="text-xs text-slate-500 font-light leading-relaxed">
+                          Equipped with state-of-the-art Permanent Magnet Synchronous Motors (PMSM) and Variable Voltage Variable Frequency (VVVF) regenerative drives. Reduces building electrical consumption by up to 48%.
+                        </p>
+
+                        <div className="grid grid-cols-2 gap-2 text-[11px] font-bold bg-slate-50 p-3 rounded-xl border border-slate-100">
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Capacity Range:</span>
+                            <span className="text-slate-800">450kg - 1600kg (6-21 P)</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Rated Speed:</span>
+                            <span className="text-slate-800">1.0 m/s - 4.0 m/s</span>
+                          </div>
+                        </div>
+
+                        <ul className="space-y-1.5 text-xs text-slate-600 font-medium pt-1">
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Intelligent 8-car group dispatching algorithm</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Machine Room-Less (MRL) &amp; MR configurations</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Automatic rescue device (ARD) during power failure</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="p-6 pt-0 border-t border-slate-100 mt-4">
+                      <button 
+                        type="button"
+                        onClick={() => handleInquiryForProduct("Passenger Elevators", "elevator-install", "Capacity: 450kg-1600kg, Speed: 1.0-4.0 m/s, PMSM Gearless VVVF")}
+                        className="w-full mt-4 py-2.5 bg-slate-900 hover:bg-[#f37021] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer active:scale-95 duration-150 flex items-center justify-center gap-2"
+                      >
+                        <Sliders className="w-3.5 h-3.5" />
+                        {lang === "en" ? "Request Quote & Specs" : "ዋጋ እና መግለጫ ይጠይቁ"}
+                      </button>
                     </div>
                   </div>
 
                   {/* Panoramic Glass Elevators */}
-                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/30 transition-all">
-                    <div className="p-6 space-y-4">
-                      <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-[#f37021]">
-                        <Eye className="w-6 h-6" />
+                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/40 hover:shadow-md transition-all group">
+                    <div>
+                      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
+                        <Image 
+                          src="/products/panoramic-elevator.jpg" 
+                          alt="Panoramic Glass Elevator" 
+                          fill 
+                          className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                        <div className="absolute top-3 left-3 bg-[#f37021] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md tracking-wider shadow">
+                          Observation Luxury
+                        </div>
+                        <div className="absolute bottom-3 left-3 right-3 text-white">
+                          <span className="text-[11px] text-slate-300 font-medium font-amharic block">ፓኖራሚክ የመስታወት ሊፍት</span>
+                          <h3 className="text-base font-bold tracking-tight">Panoramic / Observation Elevators</h3>
+                        </div>
                       </div>
-                      <h3 className="text-lg font-bold text-slate-950">Panoramic / Observation Elevators</h3>
-                      <p className="text-xs text-slate-500 font-light leading-relaxed">
-                        Add elegant luxury and prestige to commercial buildings, hotels, and high-rise apartments with panoramic glass elevator capsules. 
-                      </p>
-                      <ul className="space-y-1 text-xs text-slate-600 font-medium pt-2">
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Curvaceous or semi-circular glass shapes</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Frameless safety glass configurations</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Machine Room-Less (MRL) design options</li>
-                      </ul>
+
+                      <div className="p-6 space-y-4">
+                        <p className="text-xs text-slate-500 font-light leading-relaxed">
+                          Elevates building prestige with floor-to-ceiling laminated safety glass observation pods. Designed for upscale hotels, high-end commercial towers, shopping malls, and corporate headquarters.
+                        </p>
+
+                        <div className="grid grid-cols-2 gap-2 text-[11px] font-bold bg-slate-50 p-3 rounded-xl border border-slate-100">
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Capsule Shapes:</span>
+                            <span className="text-slate-800">Semi-Circular, Hex, Square</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Glass Class:</span>
+                            <span className="text-slate-800">12mm Double Safety Laminated</span>
+                          </div>
+                        </div>
+
+                        <ul className="space-y-1.5 text-xs text-slate-600 font-medium pt-1">
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Frameless 270° and 360° sightline aesthetics</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Architectural LED accent &amp; under-car lighting</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Outdoor weather-sealed and atrium configurations</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="p-6 pt-0 border-t border-slate-100 mt-4">
+                      <button 
+                        type="button"
+                        onClick={() => handleInquiryForProduct("Panoramic Glass Elevators", "elevator-install", "Panoramic Glass Capsule, 630kg-1250kg, Circular/Hex Design, MRL")}
+                        className="w-full mt-4 py-2.5 bg-slate-900 hover:bg-[#f37021] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer active:scale-95 duration-150 flex items-center justify-center gap-2"
+                      >
+                        <Eye className="w-3.5 h-3.5" />
+                        {lang === "en" ? "Request Quote & Specs" : "ዋጋ እና መግለጫ ይጠይቁ"}
+                      </button>
                     </div>
                   </div>
 
-                  {/* Freight / Bed Elevators */}
-                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/30 transition-all">
-                    <div className="p-6 space-y-4">
-                      <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-[#f37021]">
-                        <Building className="w-6 h-6" />
+                  {/* Freight & Hospital Lifts */}
+                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/40 hover:shadow-md transition-all group">
+                    <div>
+                      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
+                        <Image 
+                          src="/products/freight-elevator.jpg" 
+                          alt="Freight and Hospital Bed Elevator" 
+                          fill 
+                          className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                        <div className="absolute top-3 left-3 bg-[#f37021] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md tracking-wider shadow">
+                          Heavy-Duty Industrial
+                        </div>
+                        <div className="absolute bottom-3 left-3 right-3 text-white">
+                          <span className="text-[11px] text-slate-300 font-medium font-amharic block">የእቃ እና የሆስፒታል ሊፍት</span>
+                          <h3 className="text-base font-bold tracking-tight">Freight &amp; Hospital Bed Elevators</h3>
+                        </div>
                       </div>
-                      <h3 className="text-lg font-bold text-slate-950">Freight &amp; Hospital Lifts</h3>
-                      <p className="text-xs text-slate-500 font-light leading-relaxed">
-                        Engineered for rugged durability, high load capacity, and heavy duty industrial or healthcare applications with precise floor alignment.
-                      </p>
-                      <ul className="space-y-1 text-xs text-slate-600 font-medium pt-2">
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Load capacities from 1000KG to 5000KG</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Anti-collision bumper strips in cab</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Wide, multi-panel sliding door mechanisms</li>
-                      </ul>
+
+                      <div className="p-6 space-y-4">
+                        <p className="text-xs text-slate-500 font-light leading-relaxed">
+                          Engineered for heavy payload logistics, factories, warehouses, and hospital patient stretchers with millimeter-precise leveling to prevent cart tipping and seamless gurney transfers.
+                        </p>
+
+                        <div className="grid grid-cols-2 gap-2 text-[11px] font-bold bg-slate-50 p-3 rounded-xl border border-slate-100">
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Load Range:</span>
+                            <span className="text-slate-800">1000kg to 5000kg</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Door Opening:</span>
+                            <span className="text-slate-800">2-Panel / 4-Panel Center/Side</span>
+                          </div>
+                        </div>
+
+                        <ul className="space-y-1.5 text-xs text-slate-600 font-medium pt-1">
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Checkered stainless steel anti-skid floor plates</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Heavy-duty hardwood/rubber bumper crash rails</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Priority medical emergency override control mode</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="p-6 pt-0 border-t border-slate-100 mt-4">
+                      <button 
+                        type="button"
+                        onClick={() => handleInquiryForProduct("Freight & Hospital Bed Elevators", "elevator-install", "Payload: 1000kg-5000kg, Deep Cabin Dimension, Heavy-Duty Rails")}
+                        className="w-full mt-4 py-2.5 bg-slate-900 hover:bg-[#f37021] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer active:scale-95 duration-150 flex items-center justify-center gap-2"
+                      >
+                        <Building className="w-3.5 h-3.5" />
+                        {lang === "en" ? "Request Quote & Specs" : "ዋጋ እና መግለጫ ይጠይቁ"}
+                      </button>
                     </div>
                   </div>
                 </>
               )}
 
-              {activeProductTab === "escalators" && (
+              {/* Category 2: Vehicular Solutions (Car Lifts, Car Stacking, Car Platforms) */}
+              {activeProductTab === "vehicular" && (
                 <>
-                  {/* Commercial Escalators */}
-                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/30 transition-all">
-                    <div className="p-6 space-y-4">
-                      <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-[#f37021]">
-                        <Maximize className="w-6 h-6" />
+                  {/* Car Lift (Automotive Elevator) */}
+                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/40 hover:shadow-md transition-all group">
+                    <div>
+                      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
+                        <Image 
+                          src="/products/car-lift.jpg" 
+                          alt="Car Lift Automotive Elevator" 
+                          fill 
+                          className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                        <div className="absolute top-3 left-3 bg-[#f37021] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md tracking-wider shadow">
+                          Vehicular Transport
+                        </div>
+                        <div className="absolute bottom-3 left-3 right-3 text-white">
+                          <span className="text-[11px] text-slate-300 font-medium font-amharic block">የመኪና ሊፍት (አውቶሞቲቭ ኤሌቬተር)</span>
+                          <h3 className="text-base font-bold tracking-tight">Car Lift (Automotive Elevator)</h3>
+                        </div>
                       </div>
-                      <h3 className="text-lg font-bold text-slate-950">Commercial Escalators</h3>
-                      <p className="text-xs text-slate-500 font-light leading-relaxed">
-                        High capacity, continuous vertical transit systems for busy urban commercial centers, train stations, shopping malls and airports.
-                      </p>
-                      <ul className="space-y-1 text-xs text-slate-600 font-medium pt-2">
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Energy saving eco-mode (Idle speed sensor)</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Integrated safety skirt brush lighting</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> 30-degree and 35-degree inclinations</li>
-                      </ul>
-                    </div>
-                  </div>
 
-                  {/* Moving Walks */}
-                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/30 transition-all">
-                    <div className="p-6 space-y-4">
-                      <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-[#f37021]">
-                        <Maximize className="w-6 h-6 animate-pulse" />
-                      </div>
-                      <h3 className="text-lg font-bold text-slate-950">Moving Walkways</h3>
-                      <p className="text-xs text-slate-500 font-light leading-relaxed">
-                        Reliable horizontal transport arrays for malls and transit hubs. Offers comfortable movement over long distances.
-                      </p>
-                      <ul className="space-y-1 text-xs text-slate-600 font-medium pt-2">
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Smooth step connection panels</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Anti-static comb protection</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Indoor and outdoor configurations</li>
-                      </ul>
-                    </div>
-                  </div>
-                </>
-              )}
+                      <div className="p-6 space-y-4">
+                        <p className="text-xs text-slate-500 font-light leading-relaxed">
+                          Full-cabin enclosed vertical automobile elevators engineered for luxury car dealerships, high-density residential towers, and multi-story commercial parking basements.
+                        </p>
 
-              {activeProductTab === "special" && (
-                <>
-                  {/* Car Lift */}
-                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/30 transition-all">
-                    <div className="p-6 space-y-4">
-                      <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-[#f37021]">
-                        <Sliders className="w-6 h-6" />
+                        <div className="grid grid-cols-2 gap-2 text-[11px] font-bold bg-slate-50 p-3 rounded-xl border border-slate-100">
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Load Rating:</span>
+                            <span className="text-slate-800">3000kg to 5000kg</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Drive System:</span>
+                            <span className="text-slate-800">Hydraulic / Heavy Traction</span>
+                          </div>
+                        </div>
+
+                        <ul className="space-y-1.5 text-xs text-slate-600 font-medium pt-1">
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Dual-side car operating panels for driver ease</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Front &amp; rear through-door walk-through design</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> High-precision optical positioning and wheel guide stops</li>
+                        </ul>
                       </div>
-                      <h3 className="text-lg font-bold text-slate-950">Car Lifts &amp; Cargo Elevators</h3>
-                      <p className="text-xs text-slate-500 font-light leading-relaxed">
-                        Heavy duty vertical platforms optimized to transport motor vehicles safely between parking levels in modern high-density structures.
-                      </p>
-                      <ul className="space-y-1 text-xs text-slate-600 font-medium pt-2">
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Double operating panels (COP)</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Hydraulic and traction options</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Capacity up to 5000KG</li>
-                      </ul>
+                    </div>
+
+                    <div className="p-6 pt-0 border-t border-slate-100 mt-4">
+                      <button 
+                        type="button"
+                        onClick={() => handleInquiryForProduct("Car Lift (Automotive Elevator)", "elevator-install", "Load: 3000kg-5000kg, Cabin size: 3m x 6m, Dual COP, Hydraulic/Traction")}
+                        className="w-full mt-4 py-2.5 bg-slate-900 hover:bg-[#f37021] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer active:scale-95 duration-150 flex items-center justify-center gap-2"
+                      >
+                        <Sliders className="w-3.5 h-3.5" />
+                        {lang === "en" ? "Request Car Lift Specs" : "የመኪና ሊፍት መግለጫ ይጠይቁ"}
+                      </button>
                     </div>
                   </div>
 
                   {/* Car Stacking System */}
-                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/30 transition-all">
-                    <div className="p-6 space-y-4">
-                      <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-[#f37021]">
-                        <Building className="w-6 h-6" />
+                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/40 hover:shadow-md transition-all group">
+                    <div>
+                      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
+                        <Image 
+                          src="/products/car-stacking.jpg" 
+                          alt="Car Stacking Automated Parking System" 
+                          fill 
+                          className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                        <div className="absolute top-3 left-3 bg-[#f37021] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md tracking-wider shadow">
+                          Multi-Tier Parking
+                        </div>
+                        <div className="absolute bottom-3 left-3 right-3 text-white">
+                          <span className="text-[11px] text-slate-300 font-medium font-amharic block">የመኪና ስታኪንግ ፓርኪንግ ሲስተም</span>
+                          <h3 className="text-base font-bold tracking-tight">Car Stacking Parking Systems</h3>
+                        </div>
                       </div>
-                      <h3 className="text-lg font-bold text-slate-950">Car Stacking Systems</h3>
-                      <p className="text-xs text-slate-500 font-light leading-relaxed">
-                        Automated multi-level parking rack configurations designed to stack vehicles vertically, doubling or tripling parking bay density.
-                      </p>
-                      <ul className="space-y-1 text-xs text-slate-600 font-medium pt-2">
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Heavy duty steel layout tracks</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Smart photoelectric sensors</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Fail-safe mechanical locking hooks</li>
-                      </ul>
+
+                      <div className="p-6 space-y-4">
+                        <p className="text-xs text-slate-500 font-light leading-relaxed">
+                          Automated puzzle and 2-post / 4-post vehicle stacking systems that double or triple parking bay capacity within existing building footprints. Installed in major Addis Ababa developments.
+                        </p>
+
+                        <div className="grid grid-cols-2 gap-2 text-[11px] font-bold bg-slate-50 p-3 rounded-xl border border-slate-100">
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Stacking Levels:</span>
+                            <span className="text-slate-800">2-Tier to 6-Tier Puzzle</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Lifting Time:</span>
+                            <span className="text-slate-800">&lt; 45 Seconds</span>
+                          </div>
+                        </div>
+
+                        <ul className="space-y-1.5 text-xs text-slate-600 font-medium pt-1">
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> PLC microprocessor smart access card/keypad</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Anti-drop mechanical safety locking claws</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Photoelectric sensors detecting car boundaries</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="p-6 pt-0 border-t border-slate-100 mt-4">
+                      <button 
+                        type="button"
+                        onClick={() => handleInquiryForProduct("Car Stacking Parking Systems", "elevator-install", "Multi-Tier 2-4 levels, PLC controlled, 2500kg per bay capacity")}
+                        className="w-full mt-4 py-2.5 bg-slate-900 hover:bg-[#f37021] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer active:scale-95 duration-150 flex items-center justify-center gap-2"
+                      >
+                        <Building className="w-3.5 h-3.5" />
+                        {lang === "en" ? "Request Stacking Specs" : "የስታኪንግ መግለጫ ይጠይቁ"}
+                      </button>
                     </div>
                   </div>
 
-                  {/* Staircase Elevators */}
-                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/30 transition-all">
-                    <div className="p-6 space-y-4">
-                      <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-[#f37021]">
-                        <Sliders className="w-6 h-6 animate-pulse" />
+                  {/* Car Platform */}
+                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/40 hover:shadow-md transition-all group">
+                    <div>
+                      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
+                        <Image 
+                          src="/products/car-platform.jpg" 
+                          alt="Car Platform Scissor and Hydraulic Lift" 
+                          fill 
+                          className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                        <div className="absolute top-3 left-3 bg-[#f37021] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md tracking-wider shadow">
+                          Hydraulic Platform
+                        </div>
+                        <div className="absolute bottom-3 left-3 right-3 text-white">
+                          <span className="text-[11px] text-slate-300 font-medium font-amharic block">የመኪና ፕላትፎርም ሊፍት (ሲዘር/ሃይድሮሊክ)</span>
+                          <h3 className="text-base font-bold tracking-tight">Car Platform (Hydraulic / Scissor)</h3>
+                        </div>
                       </div>
-                      <h3 className="text-lg font-bold text-slate-950">Staircase &amp; Home Lifts</h3>
-                      <p className="text-xs text-slate-500 font-light leading-relaxed">
-                        Accessibility lift chairs and compact residential elevators providing easy vertical mobility within multi-story private properties.
-                      </p>
-                      <ul className="space-y-1 text-xs text-slate-600 font-medium pt-2">
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Compact space-efficient tracks</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Ultra-quiet motor system</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Rechargeable backup battery array</li>
-                      </ul>
+
+                      <div className="p-6 space-y-4">
+                        <p className="text-xs text-slate-500 font-light leading-relaxed">
+                          Heavy-duty open-deck hydraulic scissor and guide-rail vehicle lifting platforms designed for basement-to-street transitions without requiring long concrete vehicle ramps.
+                        </p>
+
+                        <div className="grid grid-cols-2 gap-2 text-[11px] font-bold bg-slate-50 p-3 rounded-xl border border-slate-100">
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Platform Size:</span>
+                            <span className="text-slate-800">Custom (up to 6m x 3.2m)</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Travel Height:</span>
+                            <span className="text-slate-800">Up to 12 meters (3-4 floors)</span>
+                          </div>
+                        </div>
+
+                        <ul className="space-y-1.5 text-xs text-slate-600 font-medium pt-1">
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Low pit depth requirements saving construction costs</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Heavy-gauge diamond steel anti-skid platform surface</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Hydraulic burst valve and emergency lowering valve</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="p-6 pt-0 border-t border-slate-100 mt-4">
+                      <button 
+                        type="button"
+                        onClick={() => handleInquiryForProduct("Car Platform (Hydraulic / Scissor)", "elevator-install", "Hydraulic scissor platform, 3500kg-5000kg, custom pit depth")}
+                        className="w-full mt-4 py-2.5 bg-slate-900 hover:bg-[#f37021] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer active:scale-95 duration-150 flex items-center justify-center gap-2"
+                      >
+                        <Maximize className="w-3.5 h-3.5" />
+                        {lang === "en" ? "Request Platform Specs" : "የፕላትፎርም መግለጫ ይጠይቁ"}
+                      </button>
                     </div>
                   </div>
                 </>
               )}
 
+              {/* Category 3: Escalators & Moving Walks */}
+              {activeProductTab === "escalators" && (
+                <>
+                  {/* Commercial Escalators */}
+                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/40 hover:shadow-md transition-all group">
+                    <div>
+                      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
+                        <Image 
+                          src="/products/escalator.jpg" 
+                          alt="Commercial Escalator" 
+                          fill 
+                          className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                        <div className="absolute top-3 left-3 bg-[#f37021] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md tracking-wider shadow">
+                          Continuous Transit
+                        </div>
+                        <div className="absolute bottom-3 left-3 right-3 text-white">
+                          <span className="text-[11px] text-slate-300 font-medium font-amharic block">የንግድ ኤስካሌተር</span>
+                          <h3 className="text-base font-bold tracking-tight">Commercial Escalators</h3>
+                        </div>
+                      </div>
+
+                      <div className="p-6 space-y-4">
+                        <p className="text-xs text-slate-500 font-light leading-relaxed">
+                          Continuous, high-traffic vertical transport systems designed for shopping malls, international airport terminals, rail stations, and busy exhibition centers.
+                        </p>
+
+                        <div className="grid grid-cols-2 gap-2 text-[11px] font-bold bg-slate-50 p-3 rounded-xl border border-slate-100">
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Inclination:</span>
+                            <span className="text-slate-800">30° and 35° Angles</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Step Width:</span>
+                            <span className="text-slate-800">800mm and 1000mm</span>
+                          </div>
+                        </div>
+
+                        <ul className="space-y-1.5 text-xs text-slate-600 font-medium pt-1">
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Smart radar passenger sensors with eco idle-speed mode</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Skirt guard safety brushes &amp; LED comb illumination</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Anti-reversal and broken drive chain safety triggers</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="p-6 pt-0 border-t border-slate-100 mt-4">
+                      <button 
+                        type="button"
+                        onClick={() => handleInquiryForProduct("Commercial Escalators", "escalator-walk", "Step width: 800/1000mm, 30/35 degree angle, VVVF Eco-drive")}
+                        className="w-full mt-4 py-2.5 bg-slate-900 hover:bg-[#f37021] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer active:scale-95 duration-150 flex items-center justify-center gap-2"
+                      >
+                        <Maximize className="w-3.5 h-3.5" />
+                        {lang === "en" ? "Request Escalator Specs" : "የኤስካሌተር መግለጫ ይጠይቁ"}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Moving Walks */}
+                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/40 hover:shadow-md transition-all group">
+                    <div>
+                      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
+                        <Image 
+                          src="/products/moving-walk.jpg" 
+                          alt="Moving Walkway Travelator" 
+                          fill 
+                          className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                        <div className="absolute top-3 left-3 bg-[#f37021] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md tracking-wider shadow">
+                          Horizontal Transit
+                        </div>
+                        <div className="absolute bottom-3 left-3 right-3 text-white">
+                          <span className="text-[11px] text-slate-300 font-medium font-amharic block">ተንቀሳቃሽ መንገድ (ትራቬሌተር)</span>
+                          <h3 className="text-base font-bold tracking-tight">Moving Walkways (Travelators)</h3>
+                        </div>
+                      </div>
+
+                      <div className="p-6 space-y-4">
+                        <p className="text-xs text-slate-500 font-light leading-relaxed">
+                          Horizontal and inclined moving sidewalks facilitating smooth passenger flow with luggage carts, strollers, and shopping trolleys across large transit corridors.
+                        </p>
+
+                        <div className="grid grid-cols-2 gap-2 text-[11px] font-bold bg-slate-50 p-3 rounded-xl border border-slate-100">
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Slope Profile:</span>
+                            <span className="text-slate-800">0° (Flat) or 10° - 12° Inclined</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Pallet Width:</span>
+                            <span className="text-slate-800">1000mm to 1400mm</span>
+                          </div>
+                        </div>
+
+                        <ul className="space-y-1.5 text-xs text-slate-600 font-medium pt-1">
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Grooved anti-slip die-cast aluminum pallets</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Shopping cart wheel locking synchronization</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Indoor and weather-proof outdoor design editions</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="p-6 pt-0 border-t border-slate-100 mt-4">
+                      <button 
+                        type="button"
+                        onClick={() => handleInquiryForProduct("Moving Walkways (Travelators)", "escalator-walk", "Pallet: 1000mm-1400mm, Incline: 0-12 degrees, Trolley compatible")}
+                        className="w-full mt-4 py-2.5 bg-slate-900 hover:bg-[#f37021] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer active:scale-95 duration-150 flex items-center justify-center gap-2"
+                      >
+                        <Maximize className="w-3.5 h-3.5" />
+                        {lang === "en" ? "Request Walkway Specs" : "የተንቀሳቃሽ መንገድ መግለጫ ይጠይቁ"}
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {/* Category 4: Power & Building Services */}
               {activeProductTab === "power" && (
                 <>
                   {/* Heavy Duty Generators */}
-                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/30 transition-all">
-                    <div className="p-6 space-y-4">
-                      <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-[#f37021]">
-                        <Zap className="w-6 h-6" />
+                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/40 hover:shadow-md transition-all group">
+                    <div>
+                      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
+                        <Image 
+                          src="/products/generator.jpg" 
+                          alt="Industrial Diesel Generator and ATS Panel" 
+                          fill 
+                          className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                        <div className="absolute top-3 left-3 bg-[#f37021] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md tracking-wider shadow">
+                          Backup Power
+                        </div>
+                        <div className="absolute bottom-3 left-3 right-3 text-white">
+                          <span className="text-[11px] text-slate-300 font-medium font-amharic block">ኢንዱስትሪያል ጄኔሬተር እና ኤቲኤስ ፓነል</span>
+                          <h3 className="text-base font-bold tracking-tight">Diesel Generators &amp; ATS Panels</h3>
+                        </div>
                       </div>
-                      <h3 className="text-lg font-bold text-slate-950">Generators &amp; Power Backups</h3>
-                      <p className="text-xs text-slate-500 font-light leading-relaxed">
-                        Supply, installation and integration of robust commercial generator backup sets (including Perkins, Cummins) and Automatic Transfer Switch (ATS) panels.
-                      </p>
-                      <ul className="space-y-1 text-xs text-slate-600 font-medium pt-2">
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> ATS power transition under 5 seconds</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Soundproof canopy configurations</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Seamless lift brake release power arrays</li>
-                      </ul>
+
+                      <div className="p-6 space-y-4">
+                        <p className="text-xs text-slate-500 font-light leading-relaxed">
+                          Supply, installation, synchronization and maintenance of prime and standby diesel generators (Perkins, Cummins engines) integrated with sub-5-second Automatic Transfer Switch (ATS) panels.
+                        </p>
+
+                        <div className="grid grid-cols-2 gap-2 text-[11px] font-bold bg-slate-50 p-3 rounded-xl border border-slate-100">
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Power Range:</span>
+                            <span className="text-slate-800">50 kVA to 2000 kVA</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">ATS Transfer:</span>
+                            <span className="text-slate-800">&lt; 5 Seconds Transition</span>
+                          </div>
+                        </div>
+
+                        <ul className="space-y-1.5 text-xs text-slate-600 font-medium pt-1">
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Soundproof weatherproof acoustic attenuating canopy</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Seamless elevator automatic rescue synchronization</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> DeepSea / ComAp smart digital monitoring controllers</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="p-6 pt-0 border-t border-slate-100 mt-4">
+                      <button 
+                        type="button"
+                        onClick={() => handleInquiryForProduct("Diesel Generators & ATS Panels", "power-generator", "Rating: 50-2000 kVA, Perkins/Cummins, Soundproof Canopy, Fast ATS")}
+                        className="w-full mt-4 py-2.5 bg-slate-900 hover:bg-[#f37021] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer active:scale-95 duration-150 flex items-center justify-center gap-2"
+                      >
+                        <Zap className="w-3.5 h-3.5" />
+                        {lang === "en" ? "Request Power Specs" : "የጄኔሬተር መግለጫ ይጠይቁ"}
+                      </button>
                     </div>
                   </div>
 
-                  {/* Building Mechanical Services */}
-                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/30 transition-all">
-                    <div className="p-6 space-y-4">
-                      <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-[#f37021]">
-                        <Wrench className="w-6 h-6" />
+                  {/* Mechanical HVAC Systems */}
+                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/40 hover:shadow-md transition-all group">
+                    <div>
+                      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
+                        <Image 
+                          src={IMAGES.industrialPanel} 
+                          alt="Commercial HVAC Ventilation and Ducting" 
+                          fill 
+                          className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                        <div className="absolute top-3 left-3 bg-[#f37021] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md tracking-wider shadow">
+                          Climate &amp; Air
+                        </div>
+                        <div className="absolute bottom-3 left-3 right-3 text-white">
+                          <span className="text-[11px] text-slate-300 font-medium font-amharic block">ሜካኒካል ኤችቪኤሲ እና አየር ማናፈሻ</span>
+                          <h3 className="text-base font-bold tracking-tight">Mechanical HVAC Systems</h3>
+                        </div>
                       </div>
-                      <h3 className="text-lg font-bold text-slate-950">Mechanical HVAC Systems</h3>
-                      <p className="text-xs text-slate-500 font-light leading-relaxed">
-                        Design, ventilation layout, fresh air and exhaust air systems matching international airflow requirements.
-                      </p>
-                      <ul className="space-y-1 text-xs text-slate-600 font-medium pt-2">
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Complex duct routing &amp; damper systems</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Multi-zone commercial air filtration</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Low vibration bracket mountings</li>
-                      </ul>
+
+                      <div className="p-6 space-y-4">
+                        <p className="text-xs text-slate-500 font-light leading-relaxed">
+                          Commercial ventilation design, fresh air intake, stairwell pressurization, and smoke extraction exhaust systems matching international life safety codes.
+                        </p>
+
+                        <div className="grid grid-cols-2 gap-2 text-[11px] font-bold bg-slate-50 p-3 rounded-xl border border-slate-100">
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Air Volume:</span>
+                            <span className="text-slate-800">5,000 - 80,000 CFM</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Filtration:</span>
+                            <span className="text-slate-800">Multi-Stage HEPA / MERV</span>
+                          </div>
+                        </div>
+
+                        <ul className="space-y-1.5 text-xs text-slate-600 font-medium pt-1">
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Fire-rated smoke damper and shaft exhaust integration</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> CNC precision galvanized sheet metal duct fabrications</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Vibration isolation mounting for low-noise operation</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="p-6 pt-0 border-t border-slate-100 mt-4">
+                      <button 
+                        type="button"
+                        onClick={() => handleInquiryForProduct("Mechanical HVAC Systems", "general-engineering", "Stairwell pressurization, smoke extraction, multi-zone ducting")}
+                        className="w-full mt-4 py-2.5 bg-slate-900 hover:bg-[#f37021] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer active:scale-95 duration-150 flex items-center justify-center gap-2"
+                      >
+                        <Wrench className="w-3.5 h-3.5" />
+                        {lang === "en" ? "Request HVAC Specs" : "የኤችቪኤሲ መግለጫ ይጠይቁ"}
+                      </button>
                     </div>
                   </div>
 
-                  {/* Electrical & Structural Construction */}
-                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/30 transition-all">
-                    <div className="p-6 space-y-4">
-                      <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-[#f37021]">
-                        <Hammer className="w-6 h-6" />
+                  {/* Structural Shafts & Electrical Distribution */}
+                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/40 hover:shadow-md transition-all group">
+                    <div>
+                      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
+                        <Image 
+                          src={IMAGES.teamwork} 
+                          alt="External Steel Elevator Shafts and Electrical Works" 
+                          fill 
+                          className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                        <div className="absolute top-3 left-3 bg-[#f37021] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md tracking-wider shadow">
+                          Turnkey Engineering
+                        </div>
+                        <div className="absolute bottom-3 left-3 right-3 text-white">
+                          <span className="text-[11px] text-slate-300 font-medium font-amharic block">የብረት ሊፍት ሳጥን እና ኤሌክትሪክ ዝርጋታ</span>
+                          <h3 className="text-base font-bold tracking-tight">Steel Shafts &amp; Main Distribution</h3>
+                        </div>
                       </div>
-                      <h3 className="text-lg font-bold text-slate-950">Structural &amp; Electrical Setup</h3>
-                      <p className="text-xs text-slate-500 font-light leading-relaxed">
-                        Building electrical cable installations, heavy duty main distribution panels, wiring, and steel structure construction for external elevator shafts.
-                      </p>
-                      <ul className="space-y-1 text-xs text-slate-600 font-medium pt-2">
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Certified steel elevator shafts</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Cable tray and wiring bus integration</li>
-                        <li className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#f37021]" /> Grounding and lightning rod frameworks</li>
-                      </ul>
+
+                      <div className="p-6 space-y-4">
+                        <p className="text-xs text-slate-500 font-light leading-relaxed">
+                          Turnkey certified structural steel elevator shaft construction for existing buildings, electrical busway installations, main distribution boards (MDB), and earthing systems.
+                        </p>
+
+                        <div className="grid grid-cols-2 gap-2 text-[11px] font-bold bg-slate-50 p-3 rounded-xl border border-slate-100">
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Steel Shafts:</span>
+                            <span className="text-slate-800">External &amp; Internal Clad</span>
+                          </div>
+                          <div>
+                            <span className="text-slate-400 font-light block text-[10px]">Protection:</span>
+                            <span className="text-slate-800">Lightning &amp; Surge Class I/II</span>
+                          </div>
+                        </div>
+
+                        <ul className="space-y-1.5 text-xs text-slate-600 font-medium pt-1">
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Structural load calculations stamped by licensed engineers</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Galvanized steel cable ladder trays and trunking</li>
+                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Complete turnkey compliance with Ethiopian building code</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="p-6 pt-0 border-t border-slate-100 mt-4">
+                      <button 
+                        type="button"
+                        onClick={() => handleInquiryForProduct("Structural Steel Shafts & Electrical Distribution", "general-engineering", "External steel elevator shaft fabrication, MDB wiring, earthing")}
+                        className="w-full mt-4 py-2.5 bg-slate-900 hover:bg-[#f37021] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer active:scale-95 duration-150 flex items-center justify-center gap-2"
+                      >
+                        <Hammer className="w-3.5 h-3.5" />
+                        {lang === "en" ? "Request Structural Specs" : "የመዋቅር መግለጫ ይጠይቁ"}
+                      </button>
                     </div>
                   </div>
                 </>
@@ -1987,11 +2641,14 @@ Please provide an official brochure, lead times, and financial quotation for thi
             <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 text-xs">
               <span className="text-slate-400 font-bold uppercase tracking-wider text-[10px]">Quick Searches:</span>
               {[
-                { label: "Tsihay (25 Lifts)", query: "Tsihay" },
-                { label: "Bole Adey", query: "Adey" },
-                { label: "Kazanchis", query: "Kazanchis" },
-                { label: "Felewuha", query: "Felewuha" },
-                { label: "Car Stacker lifts", query: "staking" }
+                { label: "Soliyana (3 Lifts)", query: "Soliyana" },
+                { label: "BHA Real Estate", query: "BHA" },
+                { label: "Gelay Panoramic", query: "Gelay" },
+                { label: "Africon (14 Floors)", query: "Africon" },
+                { label: "Getu Commercial", query: "Getu" },
+                { label: "Dugda", query: "Dugda" },
+                { label: "ANTEM Building", query: "ANTEM" },
+                { label: "Tsihay (25 Lifts)", query: "Tsihay" }
               ].map((badge, idx) => (
                 <button
                   key={idx}
@@ -2228,6 +2885,7 @@ Please provide an official brochure, lead times, and financial quotation for thi
               { id: "all", en: "All Showcase", am: "ሙሉ ማሳያ", icon: Layers },
               { id: "passenger", en: "Passenger Cabins", am: "የሰው ማመላለሻ", icon: Building },
               { id: "panoramic", en: "Panoramic Glass", am: "ፓኖራሚክ መስታወት", icon: Eye },
+              { id: "vehicular", en: "Car Lifts & Stacking", am: "የመኪና ሊፍት እና ስታኪንግ", icon: Sliders },
               { id: "systems", en: "Systems & Install", am: "መቆጣጠሪያ እና ተከላ", icon: Cpu },
               { id: "power", en: "Backup Power", am: "ጄነሬተሮች", icon: Zap }
             ].map((cat) => {

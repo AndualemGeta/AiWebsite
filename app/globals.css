@@ -16,7 +16,7 @@
   color: #ffffff;
 }
 
-/* Smooth Global Theme Transition */
+/* Smooth Global Background & Color Transitions */
 html,
 body,
 header,
@@ -25,30 +25,20 @@ section,
 main,
 nav,
 aside,
-article,
-div:not([data-no-theme-transition]),
-p,
-span,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a,
+article {
+  transition-property: background-color, border-color, color;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ensure buttons and links are snappy and interactive */
 button,
+a,
 input,
 select,
-textarea,
-table,
-thead,
-tbody,
-tr,
-th,
-td {
-  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
-  transition-duration: 350ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+textarea {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Ensure CSS animation transforms are not blocked */
