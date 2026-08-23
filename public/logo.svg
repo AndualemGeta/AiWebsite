@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 680" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Brand Color definition -->
+    <linearGradient id="brandOrangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7518" />
+      <stop offset="100%" stop-color="#E85D04" />
+    </linearGradient>
+    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#F37021" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <g id="logo-emblem" transform="translate(0, 10)">
+    <!-- Outer Circle Arc with lateral gap notches -->
+    <!-- Top Arc -->
+    <path 
+      d="M 105 240 A 185 185 0 0 1 395 240" 
+      stroke="#f37021" 
+      stroke-width="15" 
+      stroke-linecap="round" 
+      fill="none" 
+    />
+    <!-- Left Notch Marker -->
+    <path 
+      d="M 98 255 A 185 185 0 0 1 100 270" 
+      stroke="#f37021" 
+      stroke-width="15" 
+      stroke-linecap="round" 
+      fill="none" 
+    />
+    <!-- Right Notch Marker -->
+    <path 
+      d="M 400 255 A 185 185 0 0 1 402 270" 
+      stroke="#f37021" 
+      stroke-width="15" 
+      stroke-linecap="round" 
+      fill="none" 
+    />
+    <!-- Bottom Arc -->
+    <path 
+      d="M 108 285 A 185 185 0 0 0 392 285" 
+      stroke="#f37021" 
+      stroke-width="15" 
+      stroke-linecap="round" 
+      fill="none" 
+    />
+
+    <!-- Vertical Elevator / Electromechanical Bars in bottom half -->
+    <g fill="#f37021">
+      <rect x="135" y="365" width="9" height="35" rx="3" />
+      <rect x="156" y="365" width="9" height="52" rx="3" />
+      <rect x="177" y="365" width="9" height="66" rx="3" />
+      <rect x="198" y="365" width="9" height="76" rx="3" />
+      <rect x="219" y="365" width="9" height="82" rx="3" />
+      <rect x="240" y="365" width="9" height="84" rx="3" />
+      <rect x="261" y="365" width="9" height="84" rx="3" />
+      <rect x="282" y="365" width="9" height="82" rx="3" />
+      <rect x="303" y="365" width="9" height="76" rx="3" />
+      <rect x="324" y="365" width="9" height="66" rx="3" />
+      <rect x="345" y="365" width="9" height="52" rx="3" />
+      <rect x="366" y="365" width="9" height="35" rx="3" />
+    </g>
+
+    <!-- Five Pointed Central Star -->
+    <polygon 
+      points="250,85 285,190 395,190 308,255 342,360 250,295 158,360 192,255 105,190 215,190" 
+      fill="#f37021" 
+    />
+
+    <!-- Diagonal Orbital Ring around the Star -->
+    <g transform="rotate(-18 250 220)">
+      <!-- Oval path stroke with inner cutout -->
+      <path 
+        d="M 60 220 C 60 170, 440 170, 440 220 C 440 270, 60 270, 60 220 Z" 
+        stroke="#ffffff" 
+        stroke-width="26" 
+        fill="none" 
+      />
+      <path 
+        d="M 60 220 C 60 176, 440 176, 440 220 C 440 264, 60 264, 60 220 Z" 
+        stroke="#f37021" 
+        stroke-width="15" 
+        fill="none" 
+      />
+    </g>
+  </g>
+
+  <!-- Typography: SHINING STAR -->
+  <g id="logo-text" transform="translate(250, 560)">
+    <text 
+      x="0" 
+      y="0" 
+      text-anchor="middle" 
+      fill="#f37021" 
+      font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Arial Black', Impact, sans-serif" 
+      font-weight="900" 
+      font-size="46" 
+      letter-spacing="2"
+    >
+      SHINING STAR
+    </text>
+
+    <!-- Sub-heading: ELECTRO MECHANICAL WORKS -->
+    <text 
+      x="0" 
+      y="38" 
+      text-anchor="middle" 
+      fill="#f37021" 
+      font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Arial Black', Impact, sans-serif" 
+      font-weight="800" 
+      font-size="18" 
+      letter-spacing="4"
+    >
+      ELECTRO MECHANICAL WORKS
+    </text>
+  </g>
+</svg>

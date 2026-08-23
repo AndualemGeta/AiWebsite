@@ -22,7 +22,6 @@ import {
   X,
   Search,
   Check,
-  Star,
   Flame,
   Award,
   Truck,
@@ -33,10 +32,10 @@ import {
   Compass,
   ChevronLeft,
   ChevronRight,
-  Sun,
-  Moon
+  Activity
 } from "lucide-react";
 import Image from "next/image";
+import { CompanyLogo, CompanyLogoIcon } from "@/components/CompanyLogo";
 
 // Pre-defined premium stock images of elevators & modern architecture with referrers
 const IMAGES = {
@@ -50,6 +49,13 @@ const IMAGES = {
 };
 
 // Comprehensive Projects Dataset extracted directly from PDF Pages 17-22 and 26-34
+interface ProjectLifecycle {
+  stage: "Procurement" | "Structural Work" | "Commissioning";
+  progressPercent: number; // 0 - 100%
+  currentTask?: string;
+  expectedHandover?: string;
+}
+
 interface Project {
   name: string;
   amharicName?: string;
@@ -60,6 +66,7 @@ interface Project {
   status: "Completed" | "Ongoing" | "Maintenance";
   floors?: string;
   details?: string;
+  lifecycle?: ProjectLifecycle;
 }
 
 const PROJECTS_DATA: Project[] = [
@@ -298,7 +305,13 @@ const PROJECTS_DATA: Project[] = [
     units: 2,
     status: "Ongoing",
     floors: "2B+G+17 = 20 Floors",
-    details: "Elevator supply, 2 installations, testing & commissioning"
+    details: "Elevator supply, 2 installations, testing & commissioning",
+    lifecycle: {
+      stage: "Structural Work",
+      progressPercent: 70,
+      currentTask: "Hoistway guide rails & machine room traction unit mounting",
+      expectedHandover: "Q3 2026"
+    }
   },
   {
     name: "Fisik Real Estate",
@@ -308,7 +321,13 @@ const PROJECTS_DATA: Project[] = [
     units: 18,
     status: "Ongoing",
     floors: "2B+G+16 = 19 Floors",
-    details: "Elevator supply and installation (2 passenger lifts + 15 staking car lifts + 1 car platform lift)"
+    details: "Elevator supply and installation (2 passenger lifts + 15 staking car lifts + 1 car platform lift)",
+    lifecycle: {
+      stage: "Structural Work",
+      progressPercent: 60,
+      currentTask: "15 car-stacking frameworks & 2 passenger shaft structural erection",
+      expectedHandover: "Q4 2026"
+    }
   },
   {
     name: "Matrix Real Estate",
@@ -318,7 +337,13 @@ const PROJECTS_DATA: Project[] = [
     units: 1,
     status: "Ongoing",
     floors: "B+G+9 = 11 Floors",
-    details: "Elevator supply, installation, testing & commissioning 1 unit"
+    details: "Elevator supply, installation, testing & commissioning 1 unit",
+    lifecycle: {
+      stage: "Commissioning",
+      progressPercent: 88,
+      currentTask: "VVVF drive fine-tuning & EN 81-20 safety gear brake tests",
+      expectedHandover: "Q2 2026"
+    }
   },
   {
     name: "Enetafetu Real Estate",
@@ -328,7 +353,13 @@ const PROJECTS_DATA: Project[] = [
     units: 1,
     status: "Ongoing",
     floors: "G+6 = 7 Floors",
-    details: "Elevator supply, 1 installation, testing & commissioning"
+    details: "Elevator supply, 1 installation, testing & commissioning",
+    lifecycle: {
+      stage: "Commissioning",
+      progressPercent: 92,
+      currentTask: "Final load sensor balancing & ECA authority handover inspection",
+      expectedHandover: "Q2 2026"
+    }
   },
   {
     name: "Hintsa Building",
@@ -338,7 +369,13 @@ const PROJECTS_DATA: Project[] = [
     units: 3,
     status: "Ongoing",
     floors: "G+11",
-    details: "Supply and installation of 2 passenger lifts and 1 car lift"
+    details: "Supply and installation of 2 passenger lifts and 1 car lift",
+    lifecycle: {
+      stage: "Structural Work",
+      progressPercent: 65,
+      currentTask: "Passenger elevator car assembly & hydraulic car lift mechanism setup",
+      expectedHandover: "Q3 2026"
+    }
   },
   {
     name: "Africon Real Estate",
@@ -348,7 +385,13 @@ const PROJECTS_DATA: Project[] = [
     units: 2,
     status: "Ongoing",
     floors: "2B+G+13 = 15 Floors",
-    details: "Elevator supply, 2 installations, testing & commissioning"
+    details: "Elevator supply, 2 installations, testing & commissioning",
+    lifecycle: {
+      stage: "Procurement",
+      progressPercent: 40,
+      currentTask: "Factory shipping customs clearance & shaft pit waterproofing inspection",
+      expectedHandover: "Q4 2026"
+    }
   },
   {
     name: "Hamracon Construction",
@@ -358,7 +401,13 @@ const PROJECTS_DATA: Project[] = [
     units: 3,
     status: "Ongoing",
     floors: "2B+G+10",
-    details: "Elevator supply, 3 units installation, testing & commissioning"
+    details: "Elevator supply, 3 units installation, testing & commissioning",
+    lifecycle: {
+      stage: "Structural Work",
+      progressPercent: 75,
+      currentTask: "Counterweight stacking & landing door header synchronizations",
+      expectedHandover: "Q3 2026"
+    }
   },
   {
     name: "Mulush Construction",
@@ -368,7 +417,13 @@ const PROJECTS_DATA: Project[] = [
     units: 3,
     status: "Ongoing",
     floors: "2B+G+10",
-    details: "Elevator supply, 3 units installation, testing & commissioning"
+    details: "Elevator supply, 3 units installation, testing & commissioning",
+    lifecycle: {
+      stage: "Procurement",
+      progressPercent: 35,
+      currentTask: "Import container staging & preliminary plumb-line shaft alignment",
+      expectedHandover: "Q4 2026"
+    }
   },
   {
     name: "Antem Construction",
@@ -378,7 +433,13 @@ const PROJECTS_DATA: Project[] = [
     units: 3,
     status: "Ongoing",
     floors: "2B+G+10",
-    details: "Elevator supply, 3 units installation, testing & commissioning"
+    details: "Elevator supply, 3 units installation, testing & commissioning",
+    lifecycle: {
+      stage: "Structural Work",
+      progressPercent: 72,
+      currentTask: "3-unit guide rail alignment & electrical traveling cable drop",
+      expectedHandover: "Q3 2026"
+    }
   },
   {
     name: "Dugeda Construction",
@@ -388,7 +449,13 @@ const PROJECTS_DATA: Project[] = [
     units: 2,
     status: "Ongoing",
     floors: "2B+G+6 = 9 Floors",
-    details: "Elevator supply, 2 panoramic units installation, testing & commissioning"
+    details: "Elevator supply, 2 panoramic units installation, testing & commissioning",
+    lifecycle: {
+      stage: "Commissioning",
+      progressPercent: 82,
+      currentTask: "Panoramic curved glass cab mounting & smoothness acceleration profiling",
+      expectedHandover: "Q3 2026"
+    }
   },
 
   // Preventive Maintenance Projects (Slides 33-34)
@@ -488,6 +555,7 @@ const TRANSLATIONS = {
     ongoingProj: "Ongoing Projects",
     activeMaint: "Active Maintenance",
     groupExp: "Group Experience",
+    navHome: "Home",
     navOverview: "Overview",
     navProducts: "Products & Services",
     navPartners: "Strategic Partners",
@@ -499,6 +567,12 @@ const TRANSLATIONS = {
     emergencyBanner: "EE-ECA Standards Compliant (EN 81 Standard compliance guaranteed)",
     regContractor: "Grade-1 Registered Electromechanical Contractor",
     emergencyHotline: "Breakdown dispatch 24/7:",
+    lifecycleProgress: "Project Lifecycle",
+    lifecycleProcurement: "Procurement",
+    lifecycleStructural: "Structural Work",
+    lifecycleCommissioning: "Commissioning",
+    activePhaseLabel: "Active Phase",
+    estHandoverLabel: "Target Handover",
   },
   am: {
     heroBadge: "የኢትዮጵያ ቀዳሚ ሊፍት መገጣጠሚያ ድርጅት",
@@ -512,6 +586,7 @@ const TRANSLATIONS = {
     ongoingProj: "በመሰራት ላይ ያሉ",
     activeMaint: "ንቁ ጥገና",
     groupExp: "የቡድን ልምድ",
+    navHome: "መነሻ",
     navOverview: "አጠቃላይ እይታ",
     navProducts: "ምርቶች እና አገልግሎቶች",
     navPartners: "ስትራቴጂካዊ አጋሮች",
@@ -523,6 +598,12 @@ const TRANSLATIONS = {
     emergencyBanner: "በኢፌዴሪ ኤሌክትሮ መካኒካል ደረጃዎች (EN 81) የተመሰከረለት",
     regContractor: "የደረጃ-1 ኤሌክትሮ መካኒካል ተቋራጭ",
     emergencyHotline: "የድንገተኛ አደጋ ጥገና 24/7፡",
+    lifecycleProgress: "የፕሮጀክት ሂደት ደረጃ",
+    lifecycleProcurement: "አቅርቦትና ግዥ",
+    lifecycleStructural: "መዋቅራዊ ተከላ",
+    lifecycleCommissioning: "ሙከራና ርክክብ",
+    activePhaseLabel: "ያለበት ደረጃ",
+    estHandoverLabel: "የሚጠናቀቅበት",
   }
 };
 
@@ -596,28 +677,16 @@ export default function HomePage() {
   // Language state (en = English, am = Amharic)
   const [lang, setLang] = useState<"en" | "am">("en");
 
-  // Global theme state (light or dark)
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  // Global theme state
+  const [theme, setTheme] = useState<"light">("light");
 
-  // Synchronize theme with local storage and document element
+  // Enforce light theme mode
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    if (savedTheme === "dark" || savedTheme === "light") {
-      setTheme(savedTheme);
-    } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setTheme(prefersDark ? "dark" : "light");
-    }
-  }, []);
-
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
+    if (typeof document !== "undefined") {
       document.documentElement.classList.remove("dark");
     }
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+    localStorage.setItem("theme", "light");
+  }, []);
 
   // Elevator simulator states
   const [currentSimFloor, setCurrentSimFloor] = useState<number>(1);
@@ -626,7 +695,7 @@ export default function HomePage() {
   const [simDoorOpen, setSimDoorOpen] = useState<boolean>(true);
 
   // Active tabs for different information modules
-  const [activeAboutTab, setActiveAboutTab] = useState<"overview" | "values" | "prequal">("overview");
+  const [activeAboutTab, setActiveAboutTab] = useState<"overview" | "leadership" | "values" | "prequal">("overview");
   const [activeProductTab, setActiveProductTab] = useState<"elevators" | "escalators" | "special" | "power">("elevators");
   
   // Projects state
@@ -892,22 +961,13 @@ Please provide an official brochure, lead times, and financial quotation for thi
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
           {/* Corporate Brand Identity */}
-          <div className="flex items-center gap-3">
-            <div className="w-11 h-11 bg-gradient-to-br from-[#f37021] to-[#d65103] rounded-xl flex items-center justify-center text-white shadow-lg shadow-orange-500/10">
-              <Star className="w-6 h-6 animate-pulse text-white fill-white" />
-            </div>
-            <div>
-              <span className="text-xl font-bold tracking-tight text-slate-950 dark:text-white block leading-tight font-display">
-                SHINING STAR
-              </span>
-              <span className="text-[10px] font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase block">
-                ELECTRO MECHANICAL WORK
-              </span>
-            </div>
-          </div>
+          <a href="#home" className="flex items-center group transition-transform hover:scale-[1.02]">
+            <CompanyLogo variant="badge" />
+          </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-8">
+          <nav className="hidden xl:flex items-center gap-7">
+            <a href="#home" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navHome}</a>
             <a href="#about" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navOverview}</a>
             <a href="#products" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navProducts}</a>
             <a href="#partners" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navPartners}</a>
@@ -917,22 +977,8 @@ Please provide an official brochure, lead times, and financial quotation for thi
             <a href="#estimator" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors">{TRANSLATIONS[lang].navEstimator}</a>
           </nav>
 
-          {/* Quick Contact & Theme Switcher Portal */}
+          {/* Quick Contact Portal */}
           <div className="hidden lg:flex items-center gap-4">
-            {/* Theme Switcher Button */}
-            <button 
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] hover:bg-slate-200 dark:hover:bg-slate-700 transition-all flex items-center justify-center cursor-pointer"
-              aria-label="Toggle Theme"
-              title={theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
-            >
-              {theme === "light" ? (
-                <Moon className="w-5 h-5 text-slate-700 dark:text-slate-300" />
-              ) : (
-                <Sun className="w-5 h-5 text-amber-500" />
-              )}
-            </button>
-
             <a 
               href="#inquiry-portal" 
               className="inline-flex items-center gap-2 bg-slate-950 dark:bg-slate-800 hover:bg-[#f37021] dark:hover:bg-[#f37021] text-xs font-bold uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg duration-300 text-white"
@@ -942,21 +988,8 @@ Please provide an official brochure, lead times, and financial quotation for thi
             </a>
           </div>
 
-          {/* Mobile Hamburger and Theme Switcher */}
+          {/* Mobile Hamburger Toggle */}
           <div className="flex items-center gap-3 xl:hidden">
-            {/* Mobile Theme Switcher */}
-            <button 
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-[#f37021] dark:hover:text-[#f37021] transition-all flex items-center justify-center"
-              aria-label="Toggle Theme"
-            >
-              {theme === "light" ? (
-                <Moon className="w-4 h-4 text-slate-700 dark:text-slate-300" />
-              ) : (
-                <Sun className="w-4 h-4 text-amber-500" />
-              )}
-            </button>
-
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
               className="p-2 text-slate-700 dark:text-slate-300 hover:text-[#f37021] transition-colors"
@@ -971,6 +1004,7 @@ Please provide an official brochure, lead times, and financial quotation for thi
         {mobileMenuOpen && (
           <div className="xl:hidden bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 py-6 px-6 shadow-xl animate-in fade-in slide-in-from-top-4 duration-200">
             <nav className="flex flex-col gap-4">
+              <a href="#home" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navHome}</a>
               <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navOverview}</a>
               <a href="#products" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navProducts}</a>
               <a href="#partners" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-slate-800 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] transition-colors py-1">{TRANSLATIONS[lang].navPartners}</a>
@@ -984,8 +1018,8 @@ Please provide an official brochure, lead times, and financial quotation for thi
                 <span className="text-sm font-bold text-slate-900 dark:text-white">+251 985 064 087</span>
               </div>
               <a 
-                href="#inquiry-portal"
-                onClick={() => setMobileMenuOpen(false)}
+                href="#inquiry-portal" 
+                onClick={() => setMobileMenuOpen(false)} 
                 className="bg-[#f37021] hover:bg-[#d65103] text-white font-bold py-3 px-4 rounded-xl text-center transition-all shadow-md text-sm uppercase tracking-wider"
               >
                 {TRANSLATIONS[lang].getProposal}
@@ -996,7 +1030,7 @@ Please provide an official brochure, lead times, and financial quotation for thi
       </header>
 
       {/* Hero Section */}
-      <section className="relative bg-slate-950 text-white overflow-hidden py-24 sm:py-32 xl:py-40 flex items-center">
+      <section id="home" className="relative bg-slate-950 text-white overflow-hidden py-24 sm:py-32 xl:py-40 flex items-center">
         {/* Sky Backdrop */}
         <div className="absolute inset-0 z-0">
           <Image 
@@ -1020,9 +1054,9 @@ Please provide an official brochure, lead times, and financial quotation for thi
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3 py-1 bg-orange-500/10 border border-orange-500/20 rounded-full text-[#f37021] text-xs font-bold tracking-wider uppercase mb-8"
+              className="inline-flex items-center gap-2.5 px-4 py-1.5 bg-orange-500/15 border border-orange-500/30 rounded-full text-[#f37021] text-xs font-bold tracking-wider uppercase mb-8 backdrop-blur-md shadow-lg shadow-orange-500/10"
             >
-              <Compass className="w-3.5 h-3.5 animate-spin-slow" />
+              <CompanyLogoIcon className="w-4 h-4" color="#f37021" cutoutColor="transparent" />
               {TRANSLATIONS[lang].heroBadge}
             </motion.div>
 
@@ -1110,7 +1144,12 @@ Please provide an official brochure, lead times, and financial quotation for thi
             {/* Left Col: Sticky summary profile */}
             <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-28">
               <div>
-                <span className="text-xs font-bold text-[#f37021] uppercase tracking-widest block mb-2">Corporate Profile</span>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 bg-orange-500/10 dark:bg-orange-500/20 border border-orange-500/30 rounded-lg p-1 flex items-center justify-center">
+                    <CompanyLogoIcon className="w-full h-full" color="#f37021" cutoutColor="transparent" />
+                  </div>
+                  <span className="text-xs font-bold text-[#f37021] uppercase tracking-widest block">Corporate Profile</span>
+                </div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 font-display tracking-tight leading-tight">
                   Shining Star Electro Mechanical Work
                 </h2>
@@ -1121,42 +1160,88 @@ Please provide an official brochure, lead times, and financial quotation for thi
                 An industry leading vertical transportation and electromechanical solution company based in Addis Ababa, Ethiopia. We serve residential, commercial, industrial and public infrastructure sectors.
               </p>
 
-              {/* Leadership Spotlight Cards */}
+              {/* Leadership Spotlight Cards with Direct Profile Pictures */}
               <div className="space-y-4 pt-4 border-t border-slate-100">
-                <h3 className="text-xs font-extrabold text-slate-400 uppercase tracking-wider">Executive Management</h3>
-                
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {/* CEO */}
-                  <div className="bg-slate-50 border border-slate-100 p-4 rounded-2xl flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#f37021]/10 rounded-xl flex items-center justify-center text-[#f37021] flex-shrink-0">
-                      <UserCheck className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900 leading-tight">Dibekulu Admit</h4>
-                      <p className="text-[10px] text-slate-500 font-medium">Founder &amp; CEO, EE</p>
-                    </div>
-                  </div>
-
-                  {/* Manager */}
-                  <div className="bg-slate-50 border border-slate-100 p-4 rounded-2xl flex items-center gap-3">
-                    <div className="w-10 h-10 bg-slate-950/5 rounded-xl flex items-center justify-center text-slate-600 flex-shrink-0">
-                      <Users className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900 leading-tight">Rodas Tesfaye</h4>
-                      <p className="text-[10px] text-slate-500 font-medium">General Manager</p>
-                    </div>
-                  </div>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xs font-extrabold text-slate-400 uppercase tracking-wider">
+                    {lang === "am" ? "የስራ አስፈፃሚ አመራሮች" : "Executive Management"}
+                  </h3>
+                  <button 
+                    onClick={() => setActiveAboutTab("leadership")}
+                    className="text-[11px] font-bold text-[#f37021] hover:underline"
+                  >
+                    {lang === "am" ? "ሁሉንም ይመልከቱ" : "View Details →"}
+                  </button>
                 </div>
-
-                {/* Technical Manager */}
-                <div className="bg-slate-50 border border-slate-100 p-4 rounded-2xl flex items-center gap-3 max-w-sm">
-                  <div className="w-10 h-10 bg-slate-950/5 rounded-xl flex items-center justify-center text-slate-600 flex-shrink-0">
-                    <Wrench className="w-5 h-5" />
+                
+                <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3">
+                  {/* CEO */}
+                  <div className="bg-slate-50 hover:bg-orange-50/30 border border-slate-200/80 hover:border-orange-200 p-3 rounded-2xl flex items-center gap-3 transition-all">
+                    <div className="relative w-12 h-12 rounded-xl overflow-hidden border-2 border-[#f37021]/30 shadow-sm flex-shrink-0 bg-slate-200">
+                      <img 
+                        src="/team/dibekulu.jpg" 
+                        alt="Dibekulu Admit" 
+                        className="w-full h-full object-cover object-center"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5">
+                        <h4 className="text-xs font-bold text-slate-900 leading-tight truncate">
+                          {lang === "am" ? "ዲበኩሉ አድሚት" : "Dibekulu Admit"}
+                        </h4>
+                        <span className="px-1.5 py-0.2 bg-[#f37021]/10 text-[#f37021] text-[9px] font-bold rounded">CEO</span>
+                      </div>
+                      <p className="text-[10px] text-slate-500 font-medium truncate">
+                        {lang === "am" ? "መሥራችና ዋና ሥራ አስፈፃሚ (EE)" : "Founder & CEO, EE"}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-900 leading-tight">Shimeles Admit</h4>
-                    <p className="text-[10px] text-slate-500 font-medium">Technical Manager</p>
+
+                  {/* General Manager */}
+                  <div className="bg-slate-50 hover:bg-orange-50/30 border border-slate-200/80 hover:border-orange-200 p-3 rounded-2xl flex items-center gap-3 transition-all">
+                    <div className="relative w-12 h-12 rounded-xl overflow-hidden border-2 border-slate-300 shadow-sm flex-shrink-0 bg-slate-200">
+                      <img 
+                        src="/team/rodas.jpg" 
+                        alt="Rodas Tesfaye" 
+                        className="w-full h-full object-cover object-center"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5">
+                        <h4 className="text-xs font-bold text-slate-900 leading-tight truncate">
+                          {lang === "am" ? "ሮዳስ ተስፋዬ" : "Rodas Tesfaye"}
+                        </h4>
+                        <span className="px-1.5 py-0.2 bg-slate-200 text-slate-700 text-[9px] font-bold rounded">GM</span>
+                      </div>
+                      <p className="text-[10px] text-slate-500 font-medium truncate">
+                        {lang === "am" ? "ጠቅላላ ሥራ አስኪያጅ" : "General Manager"}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Technical Manager */}
+                  <div className="bg-slate-50 hover:bg-orange-50/30 border border-slate-200/80 hover:border-orange-200 p-3 rounded-2xl flex items-center gap-3 transition-all">
+                    <div className="relative w-12 h-12 rounded-xl overflow-hidden border-2 border-slate-300 shadow-sm flex-shrink-0 bg-slate-200">
+                      <img 
+                        src="/team/shimeles.jpg" 
+                        alt="Shimeles Admit" 
+                        className="w-full h-full object-cover object-center"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5">
+                        <h4 className="text-xs font-bold text-slate-900 leading-tight truncate">
+                          {lang === "am" ? "ሽመልስ አድሚት" : "Shimeles Admit"}
+                        </h4>
+                        <span className="px-1.5 py-0.2 bg-slate-200 text-slate-700 text-[9px] font-bold rounded">Tech</span>
+                      </div>
+                      <p className="text-[10px] text-slate-500 font-medium truncate">
+                        {lang === "am" ? "ቴክኒክ ሥራ አስኪያጅ" : "Technical Manager"}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1166,11 +1251,12 @@ Please provide an official brochure, lead times, and financial quotation for thi
             <div className="lg:col-span-7 space-y-8">
               
               {/* Navigation Tabs */}
-              <div className="flex border-b border-slate-200 gap-6">
+              <div className="flex flex-wrap border-b border-slate-200 gap-4 sm:gap-6">
                 {[
-                  { id: "overview", label: "Overview" },
-                  { id: "values", label: "Mission, Vision & Values" },
-                  { id: "prequal", label: "Pre-Qualification Profile" },
+                  { id: "overview", label: lang === "am" ? "አጠቃላይ እይታ" : "Overview" },
+                  { id: "leadership", label: lang === "am" ? "የአመራር አካላት" : "Executive Leadership" },
+                  { id: "values", label: lang === "am" ? "ተልዕኮ እና እሴቶች" : "Mission & Values" },
+                  { id: "prequal", label: lang === "am" ? "ቅድመ-ብቃት" : "Pre-Qualification" },
                 ].map(tab => (
                   <button
                     key={tab.id}
@@ -1232,6 +1318,110 @@ Please provide an official brochure, lead times, and financial quotation for thi
                           <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#f37021]" /> International project experience (Somalia installations)</li>
                           <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-[#f37021]" /> Real-time 24/7 technical help desk &amp; spare parts</li>
                         </ul>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeAboutTab === "leadership" && (
+                    <div className="space-y-6">
+                      <div>
+                        <span className="text-xs font-bold text-[#f37021] uppercase tracking-widest block mb-1">
+                          {lang === "am" ? "የኩባንያው ከፍተኛ አመራር" : "Corporate Governance"}
+                        </span>
+                        <h3 className="text-xl font-bold text-slate-950 font-display">
+                          {lang === "am" ? "የስራ አስፈፃሚ አመራር አካላት" : "Executive Management Team"}
+                        </h3>
+                        <p className="text-slate-600 text-sm font-light leading-relaxed mt-1">
+                          {lang === "am" 
+                            ? "የሻይኒንግ ስታር ኤሌክትሮ ሜካኒካል መሪዎች በኢትዮጵያና ዓለም አቀፍ ደረጃ በከፍተኛ የኢንጂነሪንግ ጥራትና ደህንነት ይመራሉ::" 
+                            : "Directing Shining Star with proven electromechanical expertise, stringent EN 81 safety protocols, and client-first project execution across Ethiopia."}
+                        </p>
+                      </div>
+
+                      <div className="grid sm:grid-cols-3 gap-5">
+                        {/* Dibekulu Admit */}
+                        <div className="bg-white border border-slate-200 hover:border-orange-300 rounded-2xl overflow-hidden shadow-sm transition-all group">
+                          <div className="aspect-square relative overflow-hidden bg-slate-100">
+                            <img 
+                              src="/team/dibekulu.jpg" 
+                              alt="Dibekulu Admit Tagele" 
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              referrerPolicy="no-referrer"
+                            />
+                            <div className="absolute top-3 right-3 px-2 py-0.5 bg-[#f37021] text-white text-[10px] font-bold rounded-full shadow">
+                              Founder &amp; CEO
+                            </div>
+                          </div>
+                          <div className="p-4 space-y-2">
+                            <h4 className="font-bold text-slate-900 text-base leading-tight">
+                              {lang === "am" ? "ዲበኩሉ አድሚት ታገለ" : "Dibekulu Admit Tagele"}
+                            </h4>
+                            <p className="text-[#f37021] text-xs font-semibold">
+                              {lang === "am" ? "መሥራችና ዋና ሥራ አስፈፃሚ (EE)" : "Founder & Chief Executive Officer (EE)"}
+                            </p>
+                            <p className="text-slate-500 text-xs font-light leading-relaxed">
+                              {lang === "am" 
+                                ? "የኤሌክትሪካል ኢንጂነሪንግ ባለሙያ፣ በቻይና በSicher / SRH ሊፍት ፋብሪካ የተረጋገጠ የስልጠና የምስክር ወረቀት ያለው።"
+                                : "Electrical Engineer certified in China factory elevator commissioning (SRH/Sicher Level 1) with 8+ years experience."}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Rodas Tesfaye */}
+                        <div className="bg-white border border-slate-200 hover:border-orange-300 rounded-2xl overflow-hidden shadow-sm transition-all group">
+                          <div className="aspect-square relative overflow-hidden bg-slate-100">
+                            <img 
+                              src="/team/rodas.jpg" 
+                              alt="Rodas Tesfaye" 
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              referrerPolicy="no-referrer"
+                            />
+                            <div className="absolute top-3 right-3 px-2 py-0.5 bg-slate-900 text-white text-[10px] font-bold rounded-full shadow">
+                              General Manager
+                            </div>
+                          </div>
+                          <div className="p-4 space-y-2">
+                            <h4 className="font-bold text-slate-900 text-base leading-tight">
+                              {lang === "am" ? "ሮዳስ ተስፋዬ" : "Rodas Tesfaye"}
+                            </h4>
+                            <p className="text-[#f37021] text-xs font-semibold">
+                              {lang === "am" ? "ጠቅላላ ሥራ አስኪያጅ" : "General Manager"}
+                            </p>
+                            <p className="text-slate-500 text-xs font-light leading-relaxed">
+                              {lang === "am"
+                                ? "የአቅርቦት ሰንሰለት፣ የኦፕሬሽን ስራዎች፣ የደንበኞች ግንኙነት እና የፕሮጀክት አስተዳደር መሪ።"
+                                : "Overseeing operations, international procurement logistics, commercial relations, and client contract delivery."}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Shimeles Admit */}
+                        <div className="bg-white border border-slate-200 hover:border-orange-300 rounded-2xl overflow-hidden shadow-sm transition-all group">
+                          <div className="aspect-square relative overflow-hidden bg-slate-100">
+                            <img 
+                              src="/team/shimeles.jpg" 
+                              alt="Shimeles Admit" 
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              referrerPolicy="no-referrer"
+                            />
+                            <div className="absolute top-3 right-3 px-2 py-0.5 bg-slate-900 text-white text-[10px] font-bold rounded-full shadow">
+                              Technical Manager
+                            </div>
+                          </div>
+                          <div className="p-4 space-y-2">
+                            <h4 className="font-bold text-slate-900 text-base leading-tight">
+                              {lang === "am" ? "ሽመልስ አድሚት" : "Shimeles Admit"}
+                            </h4>
+                            <p className="text-[#f37021] text-xs font-semibold">
+                              {lang === "am" ? "ቴክኒክ ሥራ አስኪያጅ" : "Technical Manager"}
+                            </p>
+                            <p className="text-slate-500 text-xs font-light leading-relaxed">
+                              {lang === "am"
+                                ? "የሳይት ተከላ ስራዎች፣ የመዋቅር ደህንነት ምርመራዎች (EN 81) እና የጥገና ስራዎች ቴክኒካል ኃላፊ።"
+                                : "Directing mechanical alignment, on-site structural installations, safety testing, and preventive maintenance teams."}
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -1885,6 +2075,101 @@ Please provide an official brochure, lead times, and financial quotation for thi
                         <span className="font-semibold text-slate-700 text-right">{p.capacity}</span>
                       </div>
                     </div>
+
+                    {/* Project Lifecycle Progress Module for Ongoing Projects */}
+                    {p.status === "Ongoing" && p.lifecycle && (
+                      <div className="mt-3 pt-3 border-t border-slate-100 bg-slate-50/90 rounded-xl p-3 border border-slate-200/70 space-y-2.5">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-1.5">
+                            <Activity className="w-3.5 h-3.5 text-[#f37021]" />
+                            <span className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">
+                              {TRANSLATIONS[lang].lifecycleProgress}
+                            </span>
+                          </div>
+                          <span className="text-[10px] font-extrabold text-[#f37021] bg-orange-100/90 px-2 py-0.5 rounded-full border border-orange-300/60">
+                            {p.lifecycle.progressPercent}%
+                          </span>
+                        </div>
+
+                        {/* Visual Progress Bar Track */}
+                        <div className="relative py-1">
+                          <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
+                            <div 
+                              className="h-full bg-gradient-to-r from-[#f37021] to-amber-500 rounded-full transition-all duration-500"
+                              style={{ width: `${p.lifecycle.progressPercent}%` }}
+                            />
+                          </div>
+
+                          {/* 3 Milestone Node Indicators */}
+                          <div className="flex justify-between items-start mt-2">
+                            {/* Milestone 1: Procurement */}
+                            <div className="flex flex-col items-start max-w-[32%]">
+                              <div className="flex items-center gap-1">
+                                <span className={`w-2 h-2 rounded-full ${
+                                  p.lifecycle.progressPercent >= 30 ? "bg-[#f37021]" : "bg-slate-300"
+                                } ${p.lifecycle.stage === "Procurement" ? "ring-2 ring-orange-400 animate-pulse" : ""}`} />
+                                <span className={`text-[9.5px] leading-tight ${
+                                  p.lifecycle.stage === "Procurement"
+                                    ? "text-[#f37021] font-bold"
+                                    : p.lifecycle.progressPercent > 35
+                                    ? "text-slate-700 font-semibold"
+                                    : "text-slate-400"
+                                }`}>
+                                  {TRANSLATIONS[lang].lifecycleProcurement}
+                                </span>
+                              </div>
+                            </div>
+
+                            {/* Milestone 2: Structural Work */}
+                            <div className="flex flex-col items-center max-w-[36%] text-center">
+                              <div className="flex items-center gap-1">
+                                <span className={`w-2 h-2 rounded-full ${
+                                  p.lifecycle.progressPercent >= 60 ? "bg-[#f37021]" : "bg-slate-300"
+                                } ${p.lifecycle.stage === "Structural Work" ? "ring-2 ring-orange-400 animate-pulse" : ""}`} />
+                                <span className={`text-[9.5px] leading-tight ${
+                                  p.lifecycle.stage === "Structural Work"
+                                    ? "text-[#f37021] font-bold"
+                                    : p.lifecycle.progressPercent > 75
+                                    ? "text-slate-700 font-semibold"
+                                    : "text-slate-400"
+                                }`}>
+                                  {TRANSLATIONS[lang].lifecycleStructural}
+                                </span>
+                              </div>
+                            </div>
+
+                            {/* Milestone 3: Commissioning */}
+                            <div className="flex flex-col items-end max-w-[32%] text-right">
+                              <div className="flex items-center gap-1">
+                                <span className={`w-2 h-2 rounded-full ${
+                                  p.lifecycle.progressPercent >= 85 ? "bg-[#f37021]" : "bg-slate-300"
+                                } ${p.lifecycle.stage === "Commissioning" ? "ring-2 ring-orange-400 animate-pulse" : ""}`} />
+                                <span className={`text-[9.5px] leading-tight ${
+                                  p.lifecycle.stage === "Commissioning"
+                                    ? "text-[#f37021] font-bold"
+                                    : p.lifecycle.progressPercent >= 100
+                                    ? "text-slate-700 font-semibold"
+                                    : "text-slate-400"
+                                }`}>
+                                  {TRANSLATIONS[lang].lifecycleCommissioning}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Current Task Detail */}
+                        {p.lifecycle.currentTask && (
+                          <div className="pt-2 border-t border-slate-200/80 flex items-start gap-1.5 text-[10px] text-slate-600">
+                            <Wrench className="w-3 h-3 text-[#f37021] flex-shrink-0 mt-0.5" />
+                            <span className="leading-snug">
+                              <strong className="text-slate-800">{TRANSLATIONS[lang].activePhaseLabel}: </strong>
+                              {p.lifecycle.currentTask}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    )}
 
                   </div>
 
@@ -2895,24 +3180,12 @@ Please provide an official brochure, lead times, and financial quotation for thi
             
             {/* Logo and Intro col */}
             <div className="md:col-span-5 space-y-6">
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 bg-gradient-to-br from-[#f37021] to-[#d65103] rounded-lg flex items-center justify-center text-white">
-                  <Star className="w-5 h-5 text-white fill-white" />
-                </div>
-                <div>
-                  <span className="text-base font-bold tracking-tight text-white block leading-tight font-display">
-                    SHINING STAR
-                  </span>
-                  <span className="text-[9px] font-bold tracking-wider text-slate-500 uppercase block">
-                    ELECTRO MECHANICAL WORK
-                  </span>
-                </div>
-              </div>
+              <CompanyLogo variant="badge" textColor="text-white" />
               <p className="text-xs text-slate-400 leading-relaxed font-bold max-w-sm">
                 Shining Star is Ethiopia's certified electro-mechanical contractor, specializing in luxury vertical transport supply, China factory trained technicians, and robust emergency breakdown support.
               </p>
               <div className="flex items-center gap-3">
-                <span className="text-xs font-bold text-slate-300">"Star of Elevation"</span>
+                <span className="text-xs font-bold text-[#f37021]">"Star of Elevation"</span>
               </div>
             </div>
 

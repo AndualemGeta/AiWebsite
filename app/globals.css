@@ -2,9 +2,83 @@
 
 @variant dark (&:where(.dark, .dark *));
 
+/* Brand Color Variables & Tokens */
+:root {
+  --brand-orange: #f37021;
+  --brand-orange-hover: #ff7a29;
+  --brand-orange-dark: #d65103;
+  --brand-orange-light: #fff7ed;
+  --brand-orange-border: rgba(243, 112, 33, 0.3);
+}
+
+::selection {
+  background-color: #f37021;
+  color: #ffffff;
+}
+
+/* Smooth Global Theme Transition */
+html,
+body,
+header,
+footer,
+section,
+main,
+nav,
+aside,
+article,
+div:not([data-no-theme-transition]),
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+button,
+input,
+select,
+textarea,
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ensure CSS animation transforms are not blocked */
+.animate-spin,
+.animate-spin-slow,
+.animate-pulse,
+.animate-bounce,
+.animate-ping {
+  transition-property: background-color, border-color, color, box-shadow;
+}
+
+/* Custom branded scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #f37021;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff7a29;
+}
+
 /* Global Dark Mode Overrides */
 .dark body {
-  background-color: #0b0f19 !important;
+  background-color: #080d1a !important;
   color: #cbd5e1 !important;
 }
 
@@ -20,7 +94,12 @@
   border-color: #1e293b !important;
 }
 
-/* Hero elements and overall container overrides */
+/* Top Announcement bar in dark mode */
+.dark .bg-slate-950 {
+  background-color: #070a13 !important;
+}
+
+/* Typography Overrides */
 .dark .text-slate-950,
 .dark .text-slate-900,
 .dark .text-slate-800,
@@ -33,14 +112,20 @@
   color: #94a3b8 !important;
 }
 
+.dark .text-slate-400 {
+  color: #64748b !important;
+}
+
 /* Border overrides */
 .dark .border-slate-100,
-.dark .border-slate-200 {
+.dark .border-slate-200,
+.dark .border-slate-300 {
   border-color: #1e293b !important;
 }
 
 .dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]),
-.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]),
+.dark .divide-slate-300 > :not([hidden]) ~ :not([hidden]) {
   border-color: #1e293b !important;
 }
 
@@ -56,12 +141,15 @@
 /* Standard panel / sub-card wrapper override */
 .dark .border-slate-100.bg-slate-50,
 .dark .border-slate-200.bg-white,
+.dark .border-slate-200.bg-slate-50,
 .dark .bg-slate-50\/40,
 .dark .bg-slate-50\/50,
 .dark .bg-slate-50\/60,
-.dark .bg-slate-100\/50 {
-  background-color: #1e293b !important;
-  border-color: #334155 !important;
+.dark .bg-slate-50\/80,
+.dark .bg-slate-100\/50,
+.dark .bg-slate-100\/80 {
+  background-color: #182234 !important;
+  border-color: #273549 !important;
 }
 
 /* Inputs, Select fields, textareas */
@@ -71,6 +159,11 @@
   background-color: #0f172a !important;
   color: #f8fafc !important;
   border-color: #334155 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #64748b !important;
 }
 
 /* Dropdown selections & option texts */
@@ -90,21 +183,33 @@
 
 /* Project status badges */
 .dark .bg-emerald-50 {
-  background-color: rgba(16, 185, 129, 0.1) !important;
+  background-color: rgba(16, 185, 129, 0.12) !important;
   color: #34d399 !important;
-  border-color: rgba(16, 185, 129, 0.2) !important;
+  border-color: rgba(16, 185, 129, 0.25) !important;
 }
 
 .dark .bg-amber-50 {
-  background-color: rgba(245, 158, 11, 0.1) !important;
+  background-color: rgba(245, 158, 11, 0.12) !important;
   color: #fbbf24 !important;
-  border-color: rgba(245, 158, 11, 0.2) !important;
+  border-color: rgba(245, 158, 11, 0.25) !important;
 }
 
 .dark .bg-blue-50 {
-  background-color: rgba(59, 130, 246, 0.1) !important;
+  background-color: rgba(59, 130, 246, 0.12) !important;
   color: #60a5fa !important;
-  border-color: rgba(59, 130, 246, 0.2) !important;
+  border-color: rgba(59, 130, 246, 0.25) !important;
+}
+
+.dark .bg-purple-50 {
+  background-color: rgba(168, 85, 247, 0.12) !important;
+  color: #c084fc !important;
+  border-color: rgba(168, 85, 247, 0.25) !important;
+}
+
+.dark .bg-orange-50 {
+  background-color: rgba(243, 112, 33, 0.12) !important;
+  color: #f37021 !important;
+  border-color: rgba(243, 112, 33, 0.25) !important;
 }
 
 /* Hover background adjustments */
@@ -113,13 +218,19 @@
   background-color: #1e293b !important;
 }
 
+.dark .hover\:bg-white:hover {
+  background-color: #1e293b !important;
+}
+
 /* Interactive simulation section overlays */
 .dark .bg-slate-900 {
   background-color: #0b0f19 !important;
 }
 
-.dark .bg-slate-950 {
-  background-color: #070a13 !important;
+/* Modals & Dialog backdrop */
+.dark .bg-black\/80,
+.dark .bg-slate-950\/80 {
+  background-color: rgba(3, 7, 18, 0.85) !important;
 }
 
 /* Shadow adjustments for dark surfaces */
@@ -127,7 +238,7 @@
 .dark .shadow-md,
 .dark .shadow-lg,
 .dark .shadow-xl {
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.6) !important;
 }
 
 /* Separator rules */
