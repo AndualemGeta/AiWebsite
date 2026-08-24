@@ -42,9 +42,9 @@ import {
 import Image from "next/image";
 import { CompanyLogo, CompanyLogoIcon } from "@/components/CompanyLogo";
 
-// Pre-defined premium stock images of elevators & modern architecture with referrers
+// Pre-defined premium images of elevators, car lifts, and parking systems with referrers
 const IMAGES = {
-  hero: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000",
+  hero: "https://images.unsplash.com/photo-1549488344-cbb6c34cf08b?auto=format&fit=crop&q=80&w=2000",
   passengerElevator: "/products/passenger-elevator.jpg",
   panoramicElevator: "/products/panoramic-elevator.jpg",
   freightElevator: "/products/freight-elevator.jpg",
@@ -54,8 +54,8 @@ const IMAGES = {
   homeElevator: "/products/home-elevator.jpg",
   escalator: "/products/escalator.jpg",
   movingWalk: "/products/moving-walk.jpg",
-  industrialPanel: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1200",
-  teamwork: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200",
+  industrialPanel: "/products/industrial-panel.jpg",
+  teamwork: "/products/teamwork.jpg",
 };
 
 // Comprehensive Projects Dataset extracted directly from PDF Pages 17-22 and 26-34
