@@ -634,7 +634,7 @@ const TRANSLATIONS = {
     heroTitle: "Star of Elevation:",
     heroTitleSpan: "Vertical Transportation",
     heroTitleEnd: " Precision",
-    heroSubtitle: "Founded in May 2023 by electrical engineer Dibekulu Admit Tagele, Shining Star Electro Mechanical Work delivers world-class elevator, escalator, car-stacking systems, and generators with unparalleled safety standards across Ethiopia and East Africa.",
+    heroSubtitle: "Founded in 2018 by electrical engineer Dibekulu Admit Tagele, Shining Star Electro Mechanical Work delivers world-class elevator, escalator, car-stacking systems, and generators with unparalleled safety standards across Ethiopia and East Africa.",
     configureBtn: "Configure Your System",
     browseProjects: "Browse Projects",
     compLifts: "Completed Lifts",
@@ -665,7 +665,7 @@ const TRANSLATIONS = {
     heroTitle: "የከፍታ ኮከብ፡",
     heroTitleSpan: "አስተማማኝ የሊፍት",
     heroTitleEnd: " አገልግሎቶች",
-    heroSubtitle: "በግንቦት ወር 2015 ዓ.ም በኤሌክትሪካል መሃንዲስ ዲበኩሉ አድሚት ታገለ የተመሰረተው ሻይኒንግ ስታር ኤሌክትሮ መካኒካል ስራዎች፥ በኢትዮጵያ እና በምስራቅ አፍሪካ ወደር የለሽ የደህንነት ደረጃዎችን የጠበቁ የሊፍት፣ የእስካሌተር፣ የመኪና ማቆሚያ (ካር ስታኪንግ) እና የጄነሬተር አቅርቦት እና ተከላ አገልግሎት ይሰጣል።",
+    heroSubtitle: "በ2018 እ.ኤ.አ በኤሌክትሪካል መሃንዲስ ዲበኩሉ አድሚት ታገለ የተመሰረተው ሻይኒንግ ስታር ኤሌክትሮ መካኒካል ስራዎች፥ በኢትዮጵያ እና በምስራቅ አፍሪካ ወደር የለሽ የደህንነት ደረጃዎችን የጠበቁ የሊፍት፣ የእስካሌተር፣ የመኪና ማቆሚያ (ካር ስታኪንግ) እና የጄነሬተር አቅርቦት እና ተከላ አገልግሎት ይሰጣል።",
     configureBtn: "ሲስተምዎን ያዋቅሩ",
     browseProjects: "ስራዎቻችንን ይመልከቱ",
     compLifts: "የተጠናቀቁ ሊፍቶች",
@@ -819,6 +819,8 @@ const GALLERY_ITEMS = [
 export default function HomePage() {
   // Mobile navigation state
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
+  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
 
   // Language state (en = English, am = Amharic)
   const [lang, setLang] = useState<"en" | "am">("en");
@@ -1121,11 +1123,11 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
           </div>
           <div className="flex items-center gap-4 text-xs">
             <a 
-              href="tel:+251985064087" 
+              href="tel:+251987077777" 
               className="flex items-center gap-1.5 hover:text-[#f37021] transition-colors cursor-pointer"
             >
               <Clock className="w-3.5 h-3.5 text-[#f37021]" />
-              {TRANSLATIONS[lang].emergencyHotline} <strong className="text-white hover:underline">+251 985 064 087</strong>
+              {TRANSLATIONS[lang].emergencyHotline} <strong className="text-white hover:underline">+251 987 077 777</strong> / <strong className="text-white hover:underline">+251 911 675 505</strong>
             </a>
           </div>
         </div>
@@ -1145,32 +1147,198 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
             <CompanyLogo variant="badge" />
           </button>
 
-          {/* Desktop & Laptop Navigation List - Adaptive to Display Ratios */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 2xl:gap-3">
-            {[
-              { id: "home", label: TRANSLATIONS[lang].navHome },
-              { id: "about", label: TRANSLATIONS[lang].navOverview },
-              { id: "products", label: TRANSLATIONS[lang].navProducts, badge: "10+" },
-              { id: "partners", label: TRANSLATIONS[lang].navPartners },
-              { id: "projects", label: TRANSLATIONS[lang].navPortfolio, badge: `${PROJECTS_DATA.length}` },
-              { id: "gallery", label: TRANSLATIONS[lang].navGallery },
-              { id: "credentials", label: TRANSLATIONS[lang].navCertifications },
-              { id: "estimator", label: TRANSLATIONS[lang].navEstimator },
-            ].map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => scrollToSection(item.id)}
-                className="relative px-2.5 xl:px-3.5 py-2 text-xs xl:text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-[#f37021] dark:hover:text-[#f37021] rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap"
+          {/* Desktop Navigation - Grouped Structure */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+            {/* 1. HOME */}
+            <button 
+              type="button" 
+              onClick={() => {
+                setProductsDropdownOpen(false);
+                setAboutDropdownOpen(false);
+                scrollToSection("home");
+              }} 
+              className="px-3 py-2 text-xs xl:text-sm font-bold uppercase tracking-wider text-slate-700 hover:text-[#f37021] rounded-lg hover:bg-slate-100 transition-colors cursor-pointer whitespace-nowrap"
+            >
+              {TRANSLATIONS[lang].navHome}
+            </button>
+
+            {/* 2. OVERVIEW */}
+            <button 
+              type="button" 
+              onClick={() => {
+                setProductsDropdownOpen(false);
+                setAboutDropdownOpen(false);
+                scrollToSection("about");
+              }} 
+              className="px-3 py-2 text-xs xl:text-sm font-bold uppercase tracking-wider text-slate-700 hover:text-[#f37021] rounded-lg hover:bg-slate-100 transition-colors cursor-pointer whitespace-nowrap"
+            >
+              {TRANSLATIONS[lang].navOverview}
+            </button>
+
+            {/* 3. PRODUCT & SERVICES (Dropdown with Spec Estimator) */}
+            <div 
+              className="relative"
+              onMouseEnter={() => {
+                setProductsDropdownOpen(true);
+                setAboutDropdownOpen(false);
+              }}
+              onMouseLeave={() => setProductsDropdownOpen(false)}
+            >
+              <button 
+                type="button" 
+                onClick={() => {
+                  setProductsDropdownOpen(!productsDropdownOpen);
+                  setAboutDropdownOpen(false);
+                }}
+                className={`px-3 py-2 text-xs xl:text-sm font-bold uppercase tracking-wider rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 whitespace-nowrap ${
+                  productsDropdownOpen ? "text-[#f37021] bg-orange-50" : "text-slate-700 hover:text-[#f37021] hover:bg-slate-100"
+                }`}
+                aria-expanded={productsDropdownOpen}
               >
-                {item.label}
-                {item.badge && (
-                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-orange-100 dark:bg-orange-950/60 text-[#f37021] border border-orange-200 dark:border-orange-900/50">
-                    {item.badge}
-                  </span>
-                )}
+                {TRANSLATIONS[lang].navProducts}
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsDropdownOpen ? "rotate-180 text-[#f37021]" : "text-slate-400"}`} />
               </button>
-            ))}
+
+              {productsDropdownOpen && (
+                <div className="absolute left-0 top-full mt-1 w-72 bg-white rounded-xl shadow-xl border border-slate-100 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setProductsDropdownOpen(false);
+                      scrollToSection("products");
+                    }}
+                    className="w-full text-left p-2.5 rounded-lg hover:bg-orange-50/80 transition-colors cursor-pointer flex items-start gap-3 group"
+                  >
+                    <div className="p-2 rounded-lg bg-orange-100 text-[#f37021] shrink-0 mt-0.5 group-hover:bg-[#f37021] group-hover:text-white transition-colors">
+                      <Building className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-slate-800 group-hover:text-[#f37021]">All Products & Solutions</span>
+                        <span className="text-[10px] font-bold px-1.5 py-0.2 bg-orange-100 text-[#f37021] rounded">10+</span>
+                      </div>
+                      <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">Passenger lifts, panoramic, car stackers & escalators</p>
+                    </div>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setProductsDropdownOpen(false);
+                      scrollToSection("estimator");
+                    }}
+                    className="w-full text-left p-2.5 rounded-lg hover:bg-orange-50/80 transition-colors cursor-pointer flex items-start gap-3 group mt-1"
+                  >
+                    <div className="p-2 rounded-lg bg-orange-100 text-[#f37021] shrink-0 mt-0.5 group-hover:bg-[#f37021] group-hover:text-white transition-colors">
+                      <Calculator className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-slate-800 group-hover:text-[#f37021]">Spec & Cost Estimator</span>
+                        <span className="text-[10px] font-bold px-1.5 py-0.2 bg-emerald-100 text-emerald-700 rounded">Interactive</span>
+                      </div>
+                      <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">Calculate elevator capacity, floors & budget sizing</p>
+                    </div>
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* 4. PROJECT PORTFOLIO */}
+            <button 
+              type="button" 
+              onClick={() => {
+                setProductsDropdownOpen(false);
+                setAboutDropdownOpen(false);
+                scrollToSection("projects");
+              }} 
+              className="px-3 py-2 text-xs xl:text-sm font-bold uppercase tracking-wider text-slate-700 hover:text-[#f37021] rounded-lg hover:bg-slate-100 transition-colors cursor-pointer flex items-center gap-1.5 whitespace-nowrap"
+            >
+              {TRANSLATIONS[lang].navPortfolio}
+              <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-orange-100 text-[#f37021] border border-orange-200">
+                {PROJECTS_DATA.length}
+              </span>
+            </button>
+
+            {/* 5. ABOUT US (Dropdown: Partners, Gallery, Certifications) */}
+            <div 
+              className="relative"
+              onMouseEnter={() => {
+                setAboutDropdownOpen(true);
+                setProductsDropdownOpen(false);
+              }}
+              onMouseLeave={() => setAboutDropdownOpen(false)}
+            >
+              <button 
+                type="button" 
+                onClick={() => {
+                  setAboutDropdownOpen(!aboutDropdownOpen);
+                  setProductsDropdownOpen(false);
+                }}
+                className={`px-3 py-2 text-xs xl:text-sm font-bold uppercase tracking-wider rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 whitespace-nowrap ${
+                  aboutDropdownOpen ? "text-[#f37021] bg-orange-50" : "text-slate-700 hover:text-[#f37021] hover:bg-slate-100"
+                }`}
+                aria-expanded={aboutDropdownOpen}
+              >
+                About Us
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${aboutDropdownOpen ? "rotate-180 text-[#f37021]" : "text-slate-400"}`} />
+              </button>
+
+              {aboutDropdownOpen && (
+                <div className="absolute left-0 top-full mt-1 w-80 bg-white rounded-xl shadow-xl border border-slate-100 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAboutDropdownOpen(false);
+                      scrollToSection("partners");
+                    }}
+                    className="w-full text-left p-2.5 rounded-lg hover:bg-orange-50/80 transition-colors cursor-pointer flex items-start gap-3 group"
+                  >
+                    <div className="p-2 rounded-lg bg-orange-100 text-[#f37021] shrink-0 mt-0.5 group-hover:bg-[#f37021] group-hover:text-white transition-colors">
+                      <Handshake className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-xs font-bold text-slate-800 group-hover:text-[#f37021] block">{TRANSLATIONS[lang].navPartners}</span>
+                      <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">Authorized OEM partnerships: Fuji, IGV & Blain</p>
+                    </div>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAboutDropdownOpen(false);
+                      scrollToSection("gallery");
+                    }}
+                    className="w-full text-left p-2.5 rounded-lg hover:bg-orange-50/80 transition-colors cursor-pointer flex items-start gap-3 group mt-1"
+                  >
+                    <div className="p-2 rounded-lg bg-orange-100 text-[#f37021] shrink-0 mt-0.5 group-hover:bg-[#f37021] group-hover:text-white transition-colors">
+                      <Camera className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-xs font-bold text-slate-800 group-hover:text-[#f37021] block">{TRANSLATIONS[lang].navGallery}</span>
+                      <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">On-site mechanical installation & completed lifts</p>
+                    </div>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAboutDropdownOpen(false);
+                      scrollToSection("credentials");
+                    }}
+                    className="w-full text-left p-2.5 rounded-lg hover:bg-orange-50/80 transition-colors cursor-pointer flex items-start gap-3 group mt-1"
+                  >
+                    <div className="p-2 rounded-lg bg-orange-100 text-[#f37021] shrink-0 mt-0.5 group-hover:bg-[#f37021] group-hover:text-white transition-colors">
+                      <Award className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-xs font-bold text-slate-800 group-hover:text-[#f37021] block">{TRANSLATIONS[lang].navCertifications}</span>
+                      <p className="text-[11px] text-slate-500 mt-0.5 leading-snug">Grade-1 Contractor License, TIN & ISO compliance</p>
+                    </div>
+                  </button>
+                </div>
+              )}
+            </div>
           </nav>
 
           {/* Quick Contact & Action Portal */}
@@ -1198,58 +1366,168 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
           </div>
         </div>
 
-        {/* Mobile & Tablet Dropdown Drawer with Complete Menu List */}
+        {/* Mobile & Tablet Dropdown Drawer with Grouped Menu List */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 py-5 px-6 shadow-xl animate-in fade-in slide-in-from-top-4 duration-200 max-h-[80vh] overflow-y-auto">
-            <nav className="flex flex-col gap-1.5">
-              {[
-                { id: "home", label: TRANSLATIONS[lang].navHome, subtitle: "Welcome & Highlights" },
-                { id: "about", label: TRANSLATIONS[lang].navOverview, subtitle: "Company Profile & Mission" },
-                { id: "products", label: TRANSLATIONS[lang].navProducts, badge: "10 Models", subtitle: "Elevators, Car Lifts & Escalators" },
-                { id: "partners", label: TRANSLATIONS[lang].navPartners, subtitle: "Fuji, IGV & Global Partners" },
-                { id: "projects", label: TRANSLATIONS[lang].navPortfolio, badge: `${PROJECTS_DATA.length} Projects`, subtitle: "Active, Completed & Maintenance" },
-                { id: "gallery", label: TRANSLATIONS[lang].navGallery, subtitle: "On-Site Engineering Photos" },
-                { id: "credentials", label: TRANSLATIONS[lang].navCertifications, subtitle: "Licenses, TIN & ISO Compliance" },
-                { id: "estimator", label: TRANSLATIONS[lang].navEstimator, subtitle: "Interactive Project Budgeting" },
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => scrollToSection(item.id)}
-                  className="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-left transition-colors cursor-pointer group"
-                >
-                  <div className="flex flex-col">
-                    <span className="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-[#f37021] transition-colors">
-                      {item.label}
-                    </span>
-                    <span className="text-[11px] text-slate-400 font-normal">
-                      {item.subtitle}
-                    </span>
-                  </div>
-                  {item.badge && (
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-orange-50 dark:bg-orange-950 text-[#f37021] border border-orange-200 dark:border-orange-900">
-                      {item.badge}
-                    </span>
-                  )}
-                </button>
-              ))}
+            <nav className="flex flex-col gap-2">
+              {/* 1. HOME */}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  scrollToSection("home");
+                }}
+                className="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-left transition-colors cursor-pointer group"
+              >
+                <span className="text-sm font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 group-hover:text-[#f37021] transition-colors">
+                  {TRANSLATIONS[lang].navHome}
+                </span>
+              </button>
 
-              <hr className="border-slate-100 dark:border-slate-800 my-2" />
+              {/* 2. OVERVIEW */}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  scrollToSection("about");
+                }}
+                className="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-left transition-colors cursor-pointer group"
+              >
+                <span className="text-sm font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 group-hover:text-[#f37021] transition-colors">
+                  {TRANSLATIONS[lang].navOverview}
+                </span>
+              </button>
+
+              {/* 3. PRODUCT & SERVICES */}
+              <div className="bg-slate-50/70 dark:bg-slate-800/40 rounded-xl p-2.5 border border-slate-100 dark:border-slate-800">
+                <span className="text-[11px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider px-2 block mb-1.5">
+                  {TRANSLATIONS[lang].navProducts}
+                </span>
+                <div className="flex flex-col gap-1 pl-1">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      scrollToSection("products");
+                    }}
+                    className="flex items-center justify-between p-2 rounded-lg hover:bg-white dark:hover:bg-slate-800 text-left transition-colors cursor-pointer group"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Building className="w-3.5 h-3.5 text-[#f37021]" />
+                      <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#f37021]">
+                        All Products & Solutions
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-orange-100 text-[#f37021]">10+</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      scrollToSection("estimator");
+                    }}
+                    className="flex items-center justify-between p-2 rounded-lg hover:bg-white dark:hover:bg-slate-800 text-left transition-colors cursor-pointer group"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Calculator className="w-3.5 h-3.5 text-[#f37021]" />
+                      <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#f37021]">
+                        Spec & Cost Estimator
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700">Interactive</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* 4. PROJECT PORTFOLIO */}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  scrollToSection("projects");
+                }}
+                className="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-left transition-colors cursor-pointer group"
+              >
+                <span className="text-sm font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 group-hover:text-[#f37021] transition-colors">
+                  {TRANSLATIONS[lang].navPortfolio}
+                </span>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-orange-100 text-[#f37021] border border-orange-200">
+                  {PROJECTS_DATA.length} Projects
+                </span>
+              </button>
+
+              {/* 5. ABOUT US */}
+              <div className="bg-slate-50/70 dark:bg-slate-800/40 rounded-xl p-2.5 border border-slate-100 dark:border-slate-800">
+                <span className="text-[11px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider px-2 block mb-1.5">
+                  About Us
+                </span>
+                <div className="flex flex-col gap-1 pl-1">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      scrollToSection("partners");
+                    }}
+                    className="flex items-center gap-2 p-2 rounded-lg hover:bg-white dark:hover:bg-slate-800 text-left transition-colors cursor-pointer group"
+                  >
+                    <Handshake className="w-3.5 h-3.5 text-[#f37021]" />
+                    <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#f37021]">
+                      {TRANSLATIONS[lang].navPartners}
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      scrollToSection("gallery");
+                    }}
+                    className="flex items-center gap-2 p-2 rounded-lg hover:bg-white dark:hover:bg-slate-800 text-left transition-colors cursor-pointer group"
+                  >
+                    <Camera className="w-3.5 h-3.5 text-[#f37021]" />
+                    <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#f37021]">
+                      {TRANSLATIONS[lang].navGallery}
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      scrollToSection("credentials");
+                    }}
+                    className="flex items-center gap-2 p-2 rounded-lg hover:bg-white dark:hover:bg-slate-800 text-left transition-colors cursor-pointer group"
+                  >
+                    <Award className="w-3.5 h-3.5 text-[#f37021]" />
+                    <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#f37021]">
+                      {TRANSLATIONS[lang].navCertifications}
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              <hr className="border-slate-100 dark:border-slate-800 my-1" />
               
               <div className="flex items-center justify-between p-2.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-100 dark:border-slate-700/60">
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">24/7 Breakdown Hotline</span>
-                  <a href="tel:+251985064087" className="text-xs font-bold text-slate-900 dark:text-white hover:text-[#f37021]">
-                    +251 985 064 087
-                  </a>
+                  <div className="flex flex-wrap items-center gap-x-2 text-xs font-bold text-slate-900 dark:text-white">
+                    <a href="tel:+251987077777" className="hover:text-[#f37021]">+251 987 077 777</a>
+                    <span className="text-slate-300">/</span>
+                    <a href="tel:+251911675505" className="hover:text-[#f37021]">+251 911 675 505</a>
+                  </div>
                 </div>
                 <Clock className="w-4 h-4 text-[#f37021]" />
               </div>
 
               <button 
                 type="button"
-                onClick={() => scrollToSection("inquiry-portal")} 
-                className="bg-[#f37021] hover:bg-[#d65103] text-white font-bold py-3 px-4 rounded-xl text-center transition-all shadow-md text-xs uppercase tracking-wider cursor-pointer active:scale-95 mt-2 flex items-center justify-center gap-2"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  scrollToSection("inquiry-portal");
+                }} 
+                className="bg-[#f37021] hover:bg-[#d65103] text-white font-bold py-3 px-4 rounded-xl text-center transition-all shadow-md text-xs uppercase tracking-wider cursor-pointer active:scale-95 mt-1 flex items-center justify-center gap-2"
               >
                 {TRANSLATIONS[lang].getProposal}
                 <ArrowRight className="w-4 h-4" />
@@ -1531,7 +1809,7 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                         <div className="space-y-2">
                           <span className="text-xs font-bold text-[#f37021] uppercase tracking-wider block">Foundational Leadership</span>
                           <p className="text-xs text-slate-600 leading-relaxed font-light">
-                            Founded in May 2023 by <strong>Dibekulu Admit Tagele</strong>, an experienced electrical engineer with extensive technical expertise in elevator maintenance, retrofitting, and international installations.
+                            Founded in 2018 by <strong>Dibekulu Admit Tagele</strong>, an experienced electrical engineer with extensive technical expertise in elevator maintenance, retrofitting, and international installations.
                           </p>
                         </div>
                         <div className="space-y-2">
@@ -3642,9 +3920,8 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 leading-none">Director Hotlines (Call or Telegram)</h4>
                     <span className="block text-sm text-slate-900 font-bold mt-1.5 space-y-1">
-                      <span className="block">&bull; +251 985 064 087</span>
-                      <span className="block">&bull; +251 989 077 777</span>
-                      <span className="block">&bull; +251 911 675 505</span>
+                      <a href="tel:+251987077777" className="block hover:text-[#f37021] transition-colors">&bull; +251 987 077 777</a>
+                      <a href="tel:+251911675505" className="block hover:text-[#f37021] transition-colors">&bull; +251 911 675 505</a>
                     </span>
                   </div>
                 </div>
@@ -3663,11 +3940,11 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                   In the event of localized building grid failure or lift suspension anomalies, our expert crew is dispatched with original components instantly. Dial our hotline.
                 </p>
                 <a 
-                  href="tel:+251985064087"
+                  href="tel:+251987077777"
                   className="inline-flex items-center gap-2 bg-[#f37021] hover:bg-[#d65103] text-white text-xs font-bold uppercase tracking-wider py-3.5 px-6 rounded-xl transition-all shadow-md"
                 >
                   <PhoneCall className="w-4 h-4 animate-bounce" />
-                  Initiate Rescue Dispatch
+                  Initiate Rescue Dispatch (+251 987 077 777)
                 </a>
               </div>
 
@@ -3737,7 +4014,7 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
                       className="w-full bg-white border border-slate-300 rounded-lg py-3 px-4 text-sm focus:outline-none focus:border-[#f37021] focus:ring-1 focus:ring-[#f37021] text-slate-800"
-                      placeholder="e.g. +251 985 064 087"
+                      placeholder="e.g. +251 987 077 777"
                     />
                   </div>
                 </div>
@@ -3871,7 +4148,7 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                 Addis Ababa, Ethiopia
               </p>
               <div className="space-y-1 text-slate-300 font-bold">
-                <span className="block">Hotline: +251 985 064 087</span>
+                <span className="block">Hotline: +251 987 077 777 / +251 911 675 505</span>
                 <span className="block">Email: info@shiningstarlink.com</span>
               </div>
             </div>
