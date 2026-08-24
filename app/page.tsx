@@ -54,7 +54,6 @@ const IMAGES = {
   homeElevator: "/products/home-elevator.jpg",
   escalator: "/products/escalator.jpg",
   movingWalk: "/products/moving-walk.jpg",
-  generator: "/products/generator.jpg",
   industrialPanel: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1200",
   teamwork: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200",
 };
@@ -83,11 +82,11 @@ interface Project {
 const PROJECTS_DATA: Project[] = [
   // Completed Projects (Slides 26-30)
   {
-    name: "GET AS Real International PLC",
+    name: "GET AS International PLC",
     location: "Felewuha, Addis Ababa",
     brand: "Fuji",
     capacity: "1000KG / 13 Persons",
-    units: 3,
+    units: 1,
     status: "Completed",
     floors: "3B+G+11 = 15 Floors",
     details: "Elevator supply, installation, testing & commissioning"
@@ -634,7 +633,7 @@ const TRANSLATIONS = {
     heroTitle: "Star of Elevation:",
     heroTitleSpan: "Vertical Transportation",
     heroTitleEnd: " Precision",
-    heroSubtitle: "Founded in 2018 by electrical engineer Dibekulu Admit Tagele, Shining Star Electro Mechanical Work delivers world-class elevator, escalator, car-stacking systems, and generators with unparalleled safety standards across Ethiopia and East Africa.",
+    heroSubtitle: "Founded in 2018 by electrical engineer Dibekulu Admit Tagele, Shining Star Electro Mechanical Work delivers world-class elevator, escalator, and car-stacking systems with unparalleled safety standards across Ethiopia and East Africa.",
     configureBtn: "Configure Your System",
     browseProjects: "Browse Projects",
     compLifts: "Completed Lifts",
@@ -665,7 +664,7 @@ const TRANSLATIONS = {
     heroTitle: "የከፍታ ኮከብ፡",
     heroTitleSpan: "አስተማማኝ የሊፍት",
     heroTitleEnd: " አገልግሎቶች",
-    heroSubtitle: "በ2018 እ.ኤ.አ በኤሌክትሪካል መሃንዲስ ዲበኩሉ አድሚት ታገለ የተመሰረተው ሻይኒንግ ስታር ኤሌክትሮ መካኒካል ስራዎች፥ በኢትዮጵያ እና በምስራቅ አፍሪካ ወደር የለሽ የደህንነት ደረጃዎችን የጠበቁ የሊፍት፣ የእስካሌተር፣ የመኪና ማቆሚያ (ካር ስታኪንግ) እና የጄነሬተር አቅርቦት እና ተከላ አገልግሎት ይሰጣል።",
+    heroSubtitle: "በ2018 እ.ኤ.አ በኤሌክትሪካል መሃንዲስ ዲበኩሉ አድሚት ታገለ የተመሰረተው ሻይኒንግ ስታር ኤሌክትሮ መካኒካል ስራዎች፥ በኢትዮጵያ እና በምስራቅ አፍሪካ ወደር የለሽ የደህንነት ደረጃዎችን የጠበቁ የሊፍት፣ የእስካሌተር እና የመኪና ማቆሚያ (ካር ስታኪንግ) አቅርቦት እና ተከላ አገልግሎት ይሰጣል።",
     configureBtn: "ሲስተምዎን ያዋቅሩ",
     browseProjects: "ስራዎቻችንን ይመልከቱ",
     compLifts: "የተጠናቀቁ ሊፍቶች",
@@ -785,16 +784,6 @@ const GALLERY_ITEMS = [
     specs_am: "አንግል፡ 0° - 12° | ስፋት፡ 1000 - 1400ሚሜ | የማያንሸራትት ወለል",
   },
   {
-    url: IMAGES.generator,
-    category: "power",
-    title_en: "High-Capacity Backup Diesel Generator Sets & ATS",
-    title_am: "ከፍተኛ አቅም ያለው የናፍጣ ጄኔሬተር እና ATS ፓነል",
-    desc_en: "Reliable prime emergency power backup units with automatic transfer switch (ATS) to ensure continuous elevator and building operations during outages.",
-    desc_am: "የኤሌክትሪክ መቆራረጥ ሲያጋጥም ሊፍቶች እንዳይቆሙ በአጭር ሰከንዶች ውስጥ አውቶማቲክ የሀይል ሽግግር (ATS) የሚያደርግ ጄነሬተር።",
-    specs_en: "Sourced Brands: Perkins / Cummins / Stamford | Capacity: 50kVA - 1500kVA | ATS Transfer: <5s",
-    specs_am: "ብራንዶች፡ ፐርኪንስ / ካሚንስ | አቅም፡ 50kVA - 1500kVA | የምላሽ ሰዓት፡ <5 ሰከንድ",
-  },
-  {
     url: IMAGES.industrialPanel,
     category: "systems",
     title_en: "Integrated Electrical & VVVF Microprocessor Cabinet",
@@ -844,7 +833,7 @@ export default function HomePage() {
 
   // Active tabs for different information modules
   const [activeAboutTab, setActiveAboutTab] = useState<"overview" | "leadership" | "values" | "prequal">("overview");
-  const [activeProductTab, setActiveProductTab] = useState<"elevators" | "vehicular" | "escalators" | "power">("elevators");
+  const [activeProductTab, setActiveProductTab] = useState<"elevators" | "vehicular" | "escalators">("elevators");
   
   // Projects state
   const [searchQuery, setSearchQuery] = useState("");
@@ -852,7 +841,7 @@ export default function HomePage() {
   const [brandFilter, setBrandFilter] = useState<string>("All");
 
   // Photo Gallery state
-  const [galleryFilter, setGalleryFilter] = useState<"all" | "passenger" | "panoramic" | "vehicular" | "systems" | "power">("all");
+  const [galleryFilter, setGalleryFilter] = useState<"all" | "passenger" | "panoramic" | "vehicular" | "systems">("all");
   const [selectedGalleryImage, setSelectedGalleryImage] = useState<number | null>(null);
 
   // Custom Elevator Estimator wizard state
@@ -987,7 +976,7 @@ Please formulate an official quotation and contact me.`
     const item = GALLERY_ITEMS[itemIndex];
     setFormData(prev => ({
       ...prev,
-      serviceType: item.category === "power" ? "power-generator" : "elevator-install",
+      serviceType: item.category === "vehicular" ? "car-stacking" : item.category === "systems" ? "elevator-modernize" : "elevator-install",
       message: `Inquiry regarding completed projects photo gallery item "${item.title_en}":
 - Technical Profile: ${item.specs_en}
 - Sourced Solution: ${item.desc_en}
@@ -2021,7 +2010,7 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
               {lang === "en" ? "Our Engineering Range" : "የኢንጂነሪንግ አገልግሎቶቻችን"}
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 font-display tracking-tight leading-tight">
-              {lang === "en" ? "Elevator Systems, Car Lifts & Building Solutions" : "የሊፍት ሲስተሞች፥ የመኪና ሊፍቶች እና የህንጻ አገልግሎቶች"}
+              {lang === "en" ? "Elevator Systems, Car Lifts & Parking Solutions" : "የሊፍት ሲስተሞች፥ የመኪና ሊፍቶች እና ስታኪንግ ፓርኪንግ"}
             </h2>
             <p className="text-slate-600 mt-4 font-light leading-relaxed">
               {lang === "en" 
@@ -2035,8 +2024,7 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
             {[
               { id: "elevators", label: lang === "en" ? "Passenger & Panoramic Lifts" : "የመንገደኞች እና ፓኖራሚክ ሊፍቶች", icon: Layers },
               { id: "vehicular", label: lang === "en" ? "Car Lifts, Stacking & Platforms" : "የመኪና ሊፍቶች እና ስታኪንግ", icon: Sliders },
-              { id: "escalators", label: lang === "en" ? "Escalators & Moving Walks" : "ኤስካሌተሮች እና ተንቀሳቃሽ መንገዶች", icon: Maximize },
-              { id: "power", label: lang === "en" ? "Power & Building Services" : "ጄኔሬተር እና የህንጻ አገልግሎቶች", icon: Zap }
+              { id: "escalators", label: lang === "en" ? "Escalators & Moving Walks" : "ኤስካሌተሮች እና ተንቀሳቃሽ መንገዶች", icon: Maximize }
             ].map(tab => {
               const Icon = tab.icon;
               return (
@@ -2076,9 +2064,10 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                     <div>
                       <div className="relative h-52 w-full overflow-hidden bg-slate-900">
                         <Image 
-                          src="/products/passenger-elevator.jpg" 
+                          src={IMAGES.passengerElevator} 
                           alt="Passenger Elevator" 
                           fill 
+                          referrerPolicy="no-referrer"
                           className="object-cover group-hover:scale-105 transition-transform duration-500" 
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
@@ -2132,9 +2121,10 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                     <div>
                       <div className="relative h-52 w-full overflow-hidden bg-slate-900">
                         <Image 
-                          src="/products/panoramic-elevator.jpg" 
+                          src={IMAGES.panoramicElevator} 
                           alt="Panoramic Glass Elevator" 
                           fill 
+                          referrerPolicy="no-referrer"
                           className="object-cover group-hover:scale-105 transition-transform duration-500" 
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
@@ -2188,9 +2178,10 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                     <div>
                       <div className="relative h-52 w-full overflow-hidden bg-slate-900">
                         <Image 
-                          src="/products/freight-elevator.jpg" 
+                          src={IMAGES.freightElevator} 
                           alt="Freight and Hospital Bed Elevator" 
                           fill 
+                          referrerPolicy="no-referrer"
                           className="object-cover group-hover:scale-105 transition-transform duration-500" 
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
@@ -2249,9 +2240,10 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                     <div>
                       <div className="relative h-52 w-full overflow-hidden bg-slate-900">
                         <Image 
-                          src="/products/car-lift.jpg" 
+                          src={IMAGES.carLift} 
                           alt="Car Lift Automotive Elevator" 
                           fill 
+                          referrerPolicy="no-referrer"
                           className="object-cover group-hover:scale-105 transition-transform duration-500" 
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
@@ -2305,9 +2297,10 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                     <div>
                       <div className="relative h-52 w-full overflow-hidden bg-slate-900">
                         <Image 
-                          src="/products/car-stacking.jpg" 
+                          src={IMAGES.carStacking} 
                           alt="Car Stacking Automated Parking System" 
                           fill 
+                          referrerPolicy="no-referrer"
                           className="object-cover group-hover:scale-105 transition-transform duration-500" 
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
@@ -2361,9 +2354,10 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                     <div>
                       <div className="relative h-52 w-full overflow-hidden bg-slate-900">
                         <Image 
-                          src="/products/car-platform.jpg" 
+                          src={IMAGES.carPlatform} 
                           alt="Car Platform Scissor and Hydraulic Lift" 
                           fill 
+                          referrerPolicy="no-referrer"
                           className="object-cover group-hover:scale-105 transition-transform duration-500" 
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
@@ -2422,9 +2416,10 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                     <div>
                       <div className="relative h-52 w-full overflow-hidden bg-slate-900">
                         <Image 
-                          src="/products/escalator.jpg" 
+                          src={IMAGES.escalator} 
                           alt="Commercial Escalator" 
                           fill 
+                          referrerPolicy="no-referrer"
                           className="object-cover group-hover:scale-105 transition-transform duration-500" 
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
@@ -2478,9 +2473,10 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                     <div>
                       <div className="relative h-52 w-full overflow-hidden bg-slate-900">
                         <Image 
-                          src="/products/moving-walk.jpg" 
+                          src={IMAGES.movingWalk} 
                           alt="Moving Walkway Travelator" 
                           fill 
+                          referrerPolicy="no-referrer"
                           className="object-cover group-hover:scale-105 transition-transform duration-500" 
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
@@ -2525,179 +2521,6 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                       >
                         <Maximize className="w-3.5 h-3.5" />
                         {lang === "en" ? "Request Walkway Specs" : "የተንቀሳቃሽ መንገድ መግለጫ ይጠይቁ"}
-                      </button>
-                    </div>
-                  </div>
-                </>
-              )}
-
-              {/* Category 4: Power & Building Services */}
-              {activeProductTab === "power" && (
-                <>
-                  {/* Heavy Duty Generators */}
-                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/40 hover:shadow-md transition-all group">
-                    <div>
-                      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
-                        <Image 
-                          src="/products/generator.jpg" 
-                          alt="Industrial Diesel Generator and ATS Panel" 
-                          fill 
-                          className="object-cover group-hover:scale-105 transition-transform duration-500" 
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-                        <div className="absolute top-3 left-3 bg-[#f37021] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md tracking-wider shadow">
-                          Backup Power
-                        </div>
-                        <div className="absolute bottom-3 left-3 right-3 text-white">
-                          <span className="text-[11px] text-slate-300 font-medium font-amharic block">ኢንዱስትሪያል ጄኔሬተር እና ኤቲኤስ ፓነል</span>
-                          <h3 className="text-base font-bold tracking-tight">Diesel Generators &amp; ATS Panels</h3>
-                        </div>
-                      </div>
-
-                      <div className="p-6 space-y-4">
-                        <p className="text-xs text-slate-500 font-light leading-relaxed">
-                          Supply, installation, synchronization and maintenance of prime and standby diesel generators (Perkins, Cummins engines) integrated with sub-5-second Automatic Transfer Switch (ATS) panels.
-                        </p>
-
-                        <div className="grid grid-cols-2 gap-2 text-[11px] font-bold bg-slate-50 p-3 rounded-xl border border-slate-100">
-                          <div>
-                            <span className="text-slate-400 font-light block text-[10px]">Power Range:</span>
-                            <span className="text-slate-800">50 kVA to 2000 kVA</span>
-                          </div>
-                          <div>
-                            <span className="text-slate-400 font-light block text-[10px]">ATS Transfer:</span>
-                            <span className="text-slate-800">&lt; 5 Seconds Transition</span>
-                          </div>
-                        </div>
-
-                        <ul className="space-y-1.5 text-xs text-slate-600 font-medium pt-1">
-                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Soundproof weatherproof acoustic attenuating canopy</li>
-                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Seamless elevator automatic rescue synchronization</li>
-                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> DeepSea / ComAp smart digital monitoring controllers</li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="p-6 pt-0 border-t border-slate-100 mt-4">
-                      <button 
-                        type="button"
-                        onClick={() => handleInquiryForProduct("Diesel Generators & ATS Panels", "power-generator", "Rating: 50-2000 kVA, Perkins/Cummins, Soundproof Canopy, Fast ATS")}
-                        className="w-full mt-4 py-2.5 bg-slate-900 hover:bg-[#f37021] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer active:scale-95 duration-150 flex items-center justify-center gap-2"
-                      >
-                        <Zap className="w-3.5 h-3.5" />
-                        {lang === "en" ? "Request Power Specs" : "የጄኔሬተር መግለጫ ይጠይቁ"}
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Mechanical HVAC Systems */}
-                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/40 hover:shadow-md transition-all group">
-                    <div>
-                      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
-                        <Image 
-                          src={IMAGES.industrialPanel} 
-                          alt="Commercial HVAC Ventilation and Ducting" 
-                          fill 
-                          className="object-cover group-hover:scale-105 transition-transform duration-500" 
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-                        <div className="absolute top-3 left-3 bg-[#f37021] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md tracking-wider shadow">
-                          Climate &amp; Air
-                        </div>
-                        <div className="absolute bottom-3 left-3 right-3 text-white">
-                          <span className="text-[11px] text-slate-300 font-medium font-amharic block">ሜካኒካል ኤችቪኤሲ እና አየር ማናፈሻ</span>
-                          <h3 className="text-base font-bold tracking-tight">Mechanical HVAC Systems</h3>
-                        </div>
-                      </div>
-
-                      <div className="p-6 space-y-4">
-                        <p className="text-xs text-slate-500 font-light leading-relaxed">
-                          Commercial ventilation design, fresh air intake, stairwell pressurization, and smoke extraction exhaust systems matching international life safety codes.
-                        </p>
-
-                        <div className="grid grid-cols-2 gap-2 text-[11px] font-bold bg-slate-50 p-3 rounded-xl border border-slate-100">
-                          <div>
-                            <span className="text-slate-400 font-light block text-[10px]">Air Volume:</span>
-                            <span className="text-slate-800">5,000 - 80,000 CFM</span>
-                          </div>
-                          <div>
-                            <span className="text-slate-400 font-light block text-[10px]">Filtration:</span>
-                            <span className="text-slate-800">Multi-Stage HEPA / MERV</span>
-                          </div>
-                        </div>
-
-                        <ul className="space-y-1.5 text-xs text-slate-600 font-medium pt-1">
-                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Fire-rated smoke damper and shaft exhaust integration</li>
-                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> CNC precision galvanized sheet metal duct fabrications</li>
-                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Vibration isolation mounting for low-noise operation</li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="p-6 pt-0 border-t border-slate-100 mt-4">
-                      <button 
-                        type="button"
-                        onClick={() => handleInquiryForProduct("Mechanical HVAC Systems", "general-engineering", "Stairwell pressurization, smoke extraction, multi-zone ducting")}
-                        className="w-full mt-4 py-2.5 bg-slate-900 hover:bg-[#f37021] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer active:scale-95 duration-150 flex items-center justify-center gap-2"
-                      >
-                        <Wrench className="w-3.5 h-3.5" />
-                        {lang === "en" ? "Request HVAC Specs" : "የኤችቪኤሲ መግለጫ ይጠይቁ"}
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Structural Shafts & Electrical Distribution */}
-                  <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-orange-500/40 hover:shadow-md transition-all group">
-                    <div>
-                      <div className="relative h-52 w-full overflow-hidden bg-slate-900">
-                        <Image 
-                          src={IMAGES.teamwork} 
-                          alt="External Steel Elevator Shafts and Electrical Works" 
-                          fill 
-                          className="object-cover group-hover:scale-105 transition-transform duration-500" 
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-                        <div className="absolute top-3 left-3 bg-[#f37021] text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md tracking-wider shadow">
-                          Turnkey Engineering
-                        </div>
-                        <div className="absolute bottom-3 left-3 right-3 text-white">
-                          <span className="text-[11px] text-slate-300 font-medium font-amharic block">የብረት ሊፍት ሳጥን እና ኤሌክትሪክ ዝርጋታ</span>
-                          <h3 className="text-base font-bold tracking-tight">Steel Shafts &amp; Main Distribution</h3>
-                        </div>
-                      </div>
-
-                      <div className="p-6 space-y-4">
-                        <p className="text-xs text-slate-500 font-light leading-relaxed">
-                          Turnkey certified structural steel elevator shaft construction for existing buildings, electrical busway installations, main distribution boards (MDB), and earthing systems.
-                        </p>
-
-                        <div className="grid grid-cols-2 gap-2 text-[11px] font-bold bg-slate-50 p-3 rounded-xl border border-slate-100">
-                          <div>
-                            <span className="text-slate-400 font-light block text-[10px]">Steel Shafts:</span>
-                            <span className="text-slate-800">External &amp; Internal Clad</span>
-                          </div>
-                          <div>
-                            <span className="text-slate-400 font-light block text-[10px]">Protection:</span>
-                            <span className="text-slate-800">Lightning &amp; Surge Class I/II</span>
-                          </div>
-                        </div>
-
-                        <ul className="space-y-1.5 text-xs text-slate-600 font-medium pt-1">
-                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Structural load calculations stamped by licensed engineers</li>
-                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Galvanized steel cable ladder trays and trunking</li>
-                          <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#f37021] flex-shrink-0" /> Complete turnkey compliance with Ethiopian building code</li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="p-6 pt-0 border-t border-slate-100 mt-4">
-                      <button 
-                        type="button"
-                        onClick={() => handleInquiryForProduct("Structural Steel Shafts & Electrical Distribution", "general-engineering", "External steel elevator shaft fabrication, MDB wiring, earthing")}
-                        className="w-full mt-4 py-2.5 bg-slate-900 hover:bg-[#f37021] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer active:scale-95 duration-150 flex items-center justify-center gap-2"
-                      >
-                        <Hammer className="w-3.5 h-3.5" />
-                        {lang === "en" ? "Request Structural Specs" : "የመዋቅር መግለጫ ይጠይቁ"}
                       </button>
                     </div>
                   </div>
@@ -3157,8 +2980,8 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
             </h2>
             <p className="text-slate-400 mt-4 font-light leading-relaxed">
               {lang === "en" 
-                ? "Browse actual photos showcasing our high-end passenger cabins, panoramic glass systems, integrated controller cabinets, and heavy-duty generators sourced from global leaders."
-                : "ከዓለም መሪ አምራቾች ያቀረብናቸውንና የገጠምናቸውን የሊፍት ካቢኔዎች፥ የመቆጣጠሪያ ሲስተሞች እና የኃይል ጄነሬተሮች እውነተኛ ፎቶዎች ይመልከቱ።"}
+                ? "Browse actual photos showcasing our high-end passenger cabins, panoramic glass systems, integrated controller cabinets, and precision mechanical installations."
+                : "ከዓለም መሪ አምራቾች ያቀረብናቸውንና የገጠምናቸውን የሊፍት ካቢኔዎች፥ የመቆጣጠሪያ ሲስተሞች እና የመስክ ተከላዎች እውነተኛ ፎቶዎች ይመልከቱ።"}
             </p>
           </div>
 
@@ -3169,8 +2992,7 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
               { id: "passenger", en: "Passenger Cabins", am: "የሰው ማመላለሻ", icon: Building },
               { id: "panoramic", en: "Panoramic Glass", am: "ፓኖራሚክ መስታወት", icon: Eye },
               { id: "vehicular", en: "Car Lifts & Stacking", am: "የመኪና ሊፍት እና ስታኪንግ", icon: Sliders },
-              { id: "systems", en: "Systems & Install", am: "መቆጣጠሪያ እና ተከላ", icon: Cpu },
-              { id: "power", en: "Backup Power", am: "ጄነሬተሮች", icon: Zap }
+              { id: "systems", en: "Systems & Install", am: "መቆጣጠሪያ እና ተከላ", icon: Cpu }
             ].map((cat) => {
               const IconComp = cat.icon;
               const isActive = galleryFilter === cat.id;
@@ -3229,8 +3051,8 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                       <span className="w-1.5 h-1.5 rounded-full bg-[#f37021]" />
                       {item.category === "passenger" ? (lang === "en" ? "Passenger" : "ሰው ማመላለሻ") :
                        item.category === "panoramic" ? (lang === "en" ? "Panoramic" : "ፓኖራሚክ") :
-                       item.category === "systems" ? (lang === "en" ? "System" : "ሲስተም") :
-                       (lang === "en" ? "Generator" : "ጄነሬተር")}
+                       item.category === "vehicular" ? (lang === "en" ? "Car Lift & Stacking" : "መኪና ሊፍት") :
+                       (lang === "en" ? "System & Install" : "ሲስተም እና ተከላ")}
                     </span>
                   </div>
 
@@ -4032,8 +3854,8 @@ Please provide formal engineering layout drawings, lead time quotation, and sche
                       <option value="elevator-install">New Elevator Supply &amp; Installation</option>
                       <option value="elevator-modernize">VVVF Modernization &amp; Retrofits</option>
                       <option value="elevator-maintenance">SLA Routine Preventive Maintenance</option>
-                      <option value="electromechanical">Mechanical HVAC / Building Electrical</option>
-                      <option value="power-generator">Heavy Duty Generator / ATS supply</option>
+                      <option value="car-stacking">Automotive Lift &amp; Car Stacking Systems</option>
+                      <option value="escalator">Escalators &amp; Moving Walkways</option>
                     </select>
                   </div>
 
