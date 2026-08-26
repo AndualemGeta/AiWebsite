@@ -44,7 +44,7 @@ import { CompanyLogo, CompanyLogoIcon } from "@/components/CompanyLogo";
 
 // Pre-defined premium images of elevators, car lifts, and parking systems with referrers
 const IMAGES = {
-  hero: "https://images.unsplash.com/photo-1549488344-cbb6c34cf08b?auto=format&fit=crop&q=80&w=2000",
+  hero: "/products/hero.jpg",
   passengerElevator: "/products/passenger-elevator.jpg",
   panoramicElevator: "/products/panoramic-elevator.jpg",
   freightElevator: "/products/freight-elevator.jpg",
